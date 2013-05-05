@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Optical Rotary Encoder Theory</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Joshua Vasquez">
+
+    <!-- Le styles -->
+    <link href="../../assets/css/bootstrap-custom.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="../../assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../../assets/ico/favicon.png">
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Days+One|Titillium+Web' rel='stylesheet' type='text/css'>
+
+  </head>
+
+   <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="../homepage.html">JoshuaVasquez</a>
+        </div>
+      </div>
+    </div>
+
+
+
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+
+<div class="span2 bs-docs-sidebar">
+<ul class="nav nav-list bs-docs-sidenav affix">
+          <li><a href="#Theory"><i class="icon-chevron-right"></i>The General Theory</a></li>
+          <li><a href="#FSM"><i class="icon-chevron-right"></i>The Finite State Machine</a></li>
+          <li><a href="#Resources"><i class="icon-chevron-right"></i>Resources</a></li>
+          <li><a href="#ProjectFiles"><i class="icon-chevron-right"></i>Project Files</a></li>
+        </ul>
+</div>
+
+
+
+<div class="span9">
+
+
+      <h1 style="text-align: center;">Optical Rotary Encoder Theory</h1>
+      <h3 style="text-align: center;"> featuring the HEDS-9140 </h3>
+<center>
+<img src="../../assets/img/Tutorials/OpticalRotaryEncoderTheory/encoderIntro.jpg" width=600>
+</center>
+      <h2> The Preamble </h2>
+        <p> 
+Perhaps after controlling a few DC motors, you may be wondering if you can get a bit more
+ precision.  For instance, what if I wanted my robot to drive forward exactly 10.0 [ft]?  
+With a typical DC motor, all we can really do is make a good guess.  With encoders, 
+however, we can do better!  We can introduce--feedback!
+
+
+</p>
+
+
+<section id="Theory">
+
+<div class="page-header">
+<h2> The General Theory</h2>
+</div>
+<p>
+Today, we'll be examining (two-channel) optical encoders in more detail, and I'll 
+guide you through the process of decrypting their output signals.  Encoders can 
+give us priceless information: they can tell us what angle the connected shaft is 
+oriented.  From that info, we could backtrack angular velocity and acceleration!  
+But there's a price.  Unlike most other sensors, where we can just poll the sensor 
+at any time, we always have to keep track of the encoder to see if it's changed angle.  
+</p>
+<h4> <i>Relative</i>, rather than <i>absolute</i> values </h4>
+<p>
+Here's a quick example on the difference between reading a typical sensor and reading 
+an encoder.  A simple light sensor responds by changing it's resistance depending 
+on how bright it is.  No matter when we sample it, it will give us the light reading 
+at the time of measurement.  On the other hand,  an encoder, just spits out two pulses 
+every time it changes it's angle by a small increment.  In other words,  to deduce our 
+overall angle, we have to sit there and "babysit" the encoder, keeping track of every 
+new pulse we see since we've started.  
+</p>
+
+<h4> The Pinouts </h4>
+<img src="../../assets/img/Tutorials/OpticalRotaryEncoderTheory/internalDiagram.png" width=450>
+<p>
+Let's take a look at the guts of the two-channel optical encoder.  Inside the encoder 
+is a small disk with tiny slits.  This disk connects directly to your rotating shaft.  
+At the bottom of the encoder is a fixture that holds an LED and two light sensors that 
+connect to the encoder's pinouts: channels A and B.  The disk rotates through this 
+fixture freely, and every time a slit passes the light sensors, the light beams break, 
+and the voltage from these signals drop.  
+</p>
+
+<p>
+It turns out that the way these two light sensors are spaced apart inside the fixture 
+produces a two very specific outputs.  if we look at the signals produced from these two
+ internal light-sensors as we rotate the disk, we'll find that one waveform is halfway 
+"out of phase" with the other.  Here's a quick pic:
+</p>
+<img src="../../assets/img/Tutorials/OpticalRotaryEncoderTheory/waveformCropped.png" width=600>
+
+<p> 
+If we measure both channels at the same time, we can see four distinct transitions on the signals above.
+<pre>
+</p>
+               Channel A:                Channel B: 
+Case a:        Low-->High                Low
+Case b:        High                      Low-->High
+Case c:        High-->Low                Low
+Case d:        Low                       High-->Low
+</pre>
+n other words, there are really only 4 possible modes (or states!) that occur in a 
+repeating pattern over and over.  In the next section, we put all of these states 
+into a finite state machine:
+</section>
+
+<section id="FSM">
+<div class="page-header">
+<h2> Decrypting the Output: a Finite State Machine</h2>
+</div>
+<p>
+In the following finite state machine diagram, each state is represented by a circle,
+ and the transitions in and out of that state are triggered by the what happens to 
+channel A or B (printed above the arrow).  This abstract FSM is exactly what we want 
+to put into the software that decodes the signals.  At this point, if you're staring 
+at a strange-looking FSM diagram and wondering how to code it up--Have no fear!  Once 
+we've created the FSM diagram, we've actually already laid out most of the code structure!
+</p>
+
+<p>
+To decrypt and interpret our rotary encoder, we'll be using an Arduino.  On the software 
+level, we'll want to call on Interrupts, so that we can watch for changes from the encoder 
+essentially at any time they might happen.  Using an interrupt essentially means that 
+the Arduino will stop whatever it was doing at the moment, handle a quick task to keep 
+track of the encoder's new angle, and then go back to whatever it was doing originally.
+</p>
+<img src="../../assets/img/Tutorials/OpticalRotaryEncoderTheory/fsm.png" width=600>
+</section>
+
+<section id="Resources">
+<div class="page-header">
+<h2> Resources</h2>
+</div>
+</section>
+
+<section id="ProjectFiles">
+<div class="page-header">
+<h2> Project Files</h2>
+</div>
+</section>
+
+    <div class="container">
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap-transition.js"></script>
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="../assets/js/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="../assets/js/bootstrap-carousel.js"></script>
+    <script src="../assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>
