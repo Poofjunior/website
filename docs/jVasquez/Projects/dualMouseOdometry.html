@@ -85,6 +85,13 @@ Joshua Vasquez and Lauren Lieu
 </div>
 
 <p>
+    For wheeled robots, traditional odometry typically relies on leveraging encoders on the 
+wheels of the robot’s drive train.  While rotations can be transformed into displacement with 
+a motion model, this method of odometry leads to the buildup of error. We propose an 
+alternative motion model using two optical mice as inputs, rather than two wheel encoders.  
+Initially, both mice will be placed flush with the ground; however, given time after implementing
+ the motion model, we plan to add new optical lenses to the mouse inputs such that both mice 
+need not be flush with the ground.
 </p>
 <img src="../../assets/img/Projects/CarbonFiberMulticopter/images/fullMotorMount.jpg" width=400>
 </section>
@@ -94,14 +101,70 @@ Joshua Vasquez and Lauren Lieu
 <section id="BackgroundTheory">
 <div class="page-header">
 <h2>Background Theory</h2>
-
+<h3> The Mouse Sensor </h3>
+    At the core of optical mouse hardware is a high-speed, low-resolution camera, likely a chip made by
+<a href='http://www.avagotech.com/pages/en/navigation_interface_devices/navigation_sensors/led-based_sensors/' >Avago Technologies</a>.
+Through optical flow, an
+algorithm implemented on the mouse IC chip tracks features in the camera image and outputs a deltaX and a deltaY 
+value since it was last queried.  By bringing this data from two mice into the computer via usb, a software-implemented 
+motion model can estimate the displacement of the robot since startup.  This method of deducing location, while free 
+from wheel slip from encoder odometry, must keep the image in the  optical sensor at a relatively constant distance to 
+the ground.  Furthermore, with the existing startup hardware, the mouse can only track speeds up to 40 [in/sec].  We will 
+work within these constraints to form a new motion model, operating the mouse under normal operating conditions.  
 </div>
 
+<h3> The Motion Model </h3>
+<p>
+For this project, we've implemented the motion model described by Andrea Bonarini, Matteo Matteucci, and
+Marcello Restelli in 
+<a href='http://chrome.ws.dei.polimi.it/images/5/56/Bonarini_2004_ICINCO.pdf'>Dead Reckoning For Mobile Robots Using Two Optical Mice</a>.
+This model uses two mice offset by a distance <i>D</i> to compute the pose <i> (x, y, &theta;)</i> from 
+the raw (&Delta;X<sub>1</sub>, &Delta;Y<sub>1</sub>, &Delta;X<sub>2</sub>, &Delta;Y<sub>2</sub>) 
+values given by the two mice at each time step. The result is similar to the 
+<a href='http://www.cs.columbia.edu/~allen/F11/NOTES/icckinematics.pdf'>motion model</a> given by 
+wheel encoders on a differential drive robot.
+</p>
 
 <section id="InitialImplementation">
 
 <div class="page-header">
 <h2>Initial Implementation</h2>
+<h3> The Hardware Platform </h3>
+<p>
+Our hardware platform of choice (our class robot), is a Jaguar Lite, sourced by Dr. Robot. This differential-
+drive platform is fairly rugged, and it features a suite of sensory
+inputs: a 9-DOF Inertial measurement unit (IMU), two rotary
+encoders, a laser range finder, and an on-
+board webcam [2]. With a wireless wifi interface, we
+can implement navigation algorithms in C# within Microsoft
+Visual Studio to communicate with the Jaguar platform. 
+</p>
+<p>
+<h3> Hardware Hacking </h3>
+To add our two mice to the sensory inputs, we had to make some slight hardware modifications.
+Since the C# suite of tools didn't have a simple implementation for accepting two mouse inputs, 
+we settled for the next best solution: building a custom sensor to integrate into the 
+Jaguar's suite of sensors. 
+</p>
+
+<p>
+To tackle this challenge, we combined the 
+<a href='https://icculus.org/manymouse/'>manymouse</a> library with Gordon's  
+<a href='https://projects.drogon.net/raspberry-pi/wiringpi/serial-library/'>wiringPi</a> 
+library as well as a few snippets of our own code to snag the movement events from both mice and 
+output their data over the harware serial port.
+
+By removing the existing IMU, a serial device, from the serial port, and replacing it with our new
+Raspberry Pi <i>dual mouse sensor </i>, we were able to bring the mouse data into C# as a false 
+imu sensor, provided that we mimicked the IMU data packet and filled it with our own data.
+<center>
+<img src="../../assets/img/Projects/OpticalMouseOdometry/blockDiagram.png" width=600>
+</center>
+
+</p>
+
+<h3> Hardware Hacking </h3>
+
 
 </div>
 
@@ -115,7 +178,22 @@ Joshua Vasquez and Lauren Lieu
 <section id="Resources">
 <div class="page-header">
 <h2>Resources</h2>
+<p>
+<a href='http://botsnlinux.net/school_projects/mouse_paper_colloquium_22march11.pdf'>High-Precision Robot Odometry Using an Array of Optical Mice</a>
+<br>
+This paper describes a clever model that, with least-squares fitting theoretically,
+ gets more accurate odometry data by increasing the number of mice that are used for odometry.  
+</p>
 
+<p>
+<a href='http://chrome.ws.dei.polimi.it/images/5/56/Bonarini_2004_ICINCO.pdf'>Dead Reckoning For Mobile Robots Using Two Optical Mice</a>
+<br>
+This paper contains the motion model that we did implement using our two mice offset by the distance <i>D</i>.
+</p>
+
+
+<p>
+</p>
 </div>
 
 
