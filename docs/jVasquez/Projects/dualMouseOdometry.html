@@ -41,7 +41,7 @@
       </div>
     </div>
 
-
+<!--
 
 <body data-spy="scroll" data-target=".bs-docs-sidebar">
 
@@ -51,11 +51,10 @@
           <li><a href="#Introduction"><i class="icon-chevron-right"></i>Introduction</a></li>
           <li><a href="#BackgroundTheory"><i class="icon-chevron-right"></i>Background Theory</a></li>
           <li><a href="#InitialImplementation"><i class="icon-chevron-right"></i>Initial Implementation</a></li>
-          <li><a href="#Extended Implementation"><i class="icon-chevron-right"></i>Extended Implementations</a></li>
           <li><a href="#Resources"><i class="icon-chevron-right"></i>Resources</a></li>
         </ul>
 </div>
-
+-->
 
 
 <div class="span9">
@@ -93,7 +92,6 @@ Initially, both mice will be placed flush with the ground; however, given time a
  the motion model, we plan to add new optical lenses to the mouse inputs such that both mice 
 need not be flush with the ground.
 </p>
-<img src="../../assets/img/Projects/CarbonFiberMulticopter/images/fullMotorMount.jpg" width=400>
 </section>
 
 
@@ -146,6 +144,11 @@ Since the C# suite of tools didn't have a simple implementation for accepting tw
 we settled for the next best solution: building a custom sensor to integrate into the 
 Jaguar's suite of sensors. 
 </p>
+Our overall block diagram is displayed below:
+<center>
+<img src="../../assets/img/Projects/OpticalMouseOdometry/Picture2.png" width=600>
+</center>
+
 
 <p>
 To tackle this challenge, we combined the 
@@ -160,19 +163,20 @@ imu sensor, provided that we mimicked the IMU data packet and filled it with our
 <center>
 <img src="../../assets/img/Projects/OpticalMouseOdometry/blockDiagram.png" width=600>
 </center>
-
 </p>
 
-<h3> Hardware Hacking </h3>
+<h3> Results </h3>
+<p>
+In the brief clip below, we can see the onscreen robot tracking the two mice on the wooden table.
+</p>
+
+<div class="embed-container">
+ <iframe src="http://youtu.be/Vd8OnHY5K3Q"; frameborder="0"> </iframe>
+</div>
 
 
 </div>
 
-<section id="Extended Implementation">
-<div class="page-header">
-<h2>Extended Implementation</h2>
-
-</div>
 
 
 <section id="Resources">
