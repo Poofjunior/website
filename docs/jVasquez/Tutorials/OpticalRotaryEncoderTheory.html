@@ -27,8 +27,7 @@
     <link href='http://fonts.googleapis.com/css?family=Days+One|Titillium+Web' rel='stylesheet' type='text/css'>
 
   </head>
-
-   <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -36,10 +35,21 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="../homepage.html">JoshuaVasquez</a>
+          <a class="brand" href="#">Joshua Vasquez</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="../about.html">About</a></li>
+              <li><a href="../projectsList.html">Projects</a></li>
+              <li><a href="../tutorialsList.html">Tutorials</a></li>
+              <li><a href="../resources.html">Resources</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
+
+
 
 
 
@@ -155,17 +165,42 @@ the Arduino will stop whatever it was doing at the moment, handle a quick task t
 track of the encoder's new angle, and then go back to whatever it was doing originally.
 </p>
 <img src="../../assets/img/Tutorials/OpticalRotaryEncoderTheory/fsm.png" width=600>
+<p>
+In the code below we do two simple things in each state: 
+    1. We setup all the ways we can get out of that state for the next transition.<br>
+    2. We increment (or decrement) the current index accordingly.<br>
+</p>
+<h4>Reading on the EDGE: an unexpected resolution bump </h4> 
+<p>
+For this demonstration, I used an encoder with 500 CPR (counts per revolution).  
+This CPR value tells us that there are 500 slits on the encoder's internal disk.  
+However, since we're monitoring the transition on the edges of the slit, we actually
+ get 2000 points of resolution from the encoder!  Neat, huh?  This is all thanks to 
+the fact that the Arduino has interrupts that respond to both types of signal 
+changes: a RISE and a FALL.  
+</p>
 </section>
 
 <section id="Resources">
 <div class="page-header">
 <h2> Resources</h2>
+<a href='http://awtarlab3.engin.umich.edu/wiki/index.php/Arduino'>http://awtarlab3.engin.umich.edu/wiki/index.php/Arduino</a><br>
+<a href='http://abrobotics.tripod.com/Ebot/using_encoder.htm'>http://abrobotics.tripod.com/Ebot/using_encoder.htm</a><br>
+<a href='http://arduino.cc/en/Reference/AttachInterrupt'>http://arduino.cc/en/Reference/AttachInterrupt</a><br>
+<a href='http://www.engblaze.com/we-interrupt-this-program-to-bring-you-a-tutorial-on-arduino-interrupts/'>http://www.engblaze.com/we-interrupt-this-program-to-bring-you-a-tutorial-on-arduino-interrupts/</a><br>
+
+
 </div>
 </section>
 
 <section id="ProjectFiles">
 <div class="page-header">
 <h2> Project Files</h2>
+<p>
+The full Source code can be downloaded from Github 
+<a href='https://github.com/Poofjunior/ArduinoQuadratureRotaryEncoder'>here</a>.
+Enjoy!
+</p>
 </div>
 </section>
 
