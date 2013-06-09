@@ -38,7 +38,6 @@
           <a class="brand" href="#">Joshua Vasquez</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
               <li><a href="../about.html">About</a></li>
               <li><a href="../projectsList.html">Projects</a></li>
               <li><a href="../tutorialsList.html">Tutorials</a></li>
@@ -70,12 +69,12 @@
 <div class="span9">
 
 
-      <h1 style="text-align: center;">Optical Rotary Encoder Theory</h1>
-      <h3 style="text-align: center;"> featuring the HEDS-9140 </h3>
+      <h3 style="text-align: center;">Optical Rotary Encoder Theory</h3>
+      <h4 style="text-align: center;"> featuring the HEDS-9140 </h4>
 <center>
 <img src="../../assets/img/Tutorials/OpticalRotaryEncoderTheory/encoderIntro.jpg" width=600>
 </center>
-      <h2> The Preamble </h2>
+      <h3> The Preamble </h3>
         <p> 
 Perhaps after controlling a few DC motors, you may be wondering if you can get a bit more
  precision.  For instance, what if I wanted my robot to drive forward exactly 10.0 [ft]?  
@@ -89,7 +88,7 @@ however, we can do better!  We can introduce--feedback!
 <section id="Theory">
 
 <div class="page-header">
-<h2> The General Theory</h2>
+<h3> The General Theory</h3>
 </div>
 <p>
 Today, we'll be examining (two-channel) optical encoders in more detail, and I'll 
@@ -146,7 +145,7 @@ into a finite state machine:
 
 <section id="FSM">
 <div class="page-header">
-<h2> Decrypting the Output: a Finite State Machine</h2>
+<h3> Decrypting the Output: a Finite State Machine</h3>
 </div>
 <p>
 In the following finite state machine diagram, each state is represented by a circle,
@@ -170,7 +169,7 @@ In the code below we do two simple things in each state:
     1. We setup all the ways we can get out of that state for the next transition.<br>
     2. We increment (or decrement) the current index accordingly.<br>
 </p>
-<h4>Reading on the EDGE: an unexpected resolution bump </h4> 
+<h3>Reading on the EDGE: an unexpected resolution bump </h3> 
 <p>
 For this demonstration, I used an encoder with 500 CPR (counts per revolution).  
 This CPR value tells us that there are 500 slits on the encoder's internal disk.  
@@ -183,7 +182,7 @@ changes: a RISE and a FALL.
 
 <section id="Resources">
 <div class="page-header">
-<h2> Resources</h2>
+<h3> Resources</h3>
 <a href='http://awtarlab3.engin.umich.edu/wiki/index.php/Arduino'>http://awtarlab3.engin.umich.edu/wiki/index.php/Arduino</a><br>
 <a href='http://abrobotics.tripod.com/Ebot/using_encoder.htm'>http://abrobotics.tripod.com/Ebot/using_encoder.htm</a><br>
 <a href='http://arduino.cc/en/Reference/AttachInterrupt'>http://arduino.cc/en/Reference/AttachInterrupt</a><br>
@@ -195,7 +194,7 @@ changes: a RISE and a FALL.
 
 <section id="ProjectFiles">
 <div class="page-header">
-<h2> Project Files</h2>
+<h3> Project Files</h3>
 <p>
 The full Source code can be downloaded from Github 
 <a href='https://github.com/Poofjunior/ArduinoQuadratureRotaryEncoder'>here</a>.
