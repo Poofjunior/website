@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>The Two-Axis Gantry</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Joshua Vasquez">
+
+    <!-- Le styles -->
+    <link href="../../assets/css/bootstrap-custom.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="../../assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../../assets/ico/favicon.png">
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Days+One|Titillium+Web' rel='stylesheet' type='text/css'>
+
+  </head>
+
+   <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="../../../index.html">Joshua Vasquez</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="../about.html">About</a></li>
+              <li><a href="../projectsList.html">Projects</a></li>
+              <li><a href="../tutorialsList.html">Tutorials</a></li>
+              <li><a href="../resources.html">Resources</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+
+
+
+<div class="span9">
+
+
+
+
+<h3 style="text-align: center;">The Two-Axis Gantry</h3>
+<center>
+<img src="../../assets/img/Projects/bookBinder/bookRig5.JPG" width=600>
+</center>
+
+
+
+<h3> Introduction</h3>
+
+<p>
+This summer, I took some time to learn the ins-and-outs of programming the 
+CNC mill.  As a machining tool, it's an incredible upgrade from the manual
+milling machines. Rather than having to manually move the mill to a 
+particular location, it can be programmed to perform that operation 
+automatically. Furthermore, the milling machine can produce arcs and 
+pockets, a task well-outside the scope of the manual mills. With the
+CNC mill, many projects impossible with the manual mills are now 
+realizable with a bit of time and some programming effort.   
+</p>
+
+
+<h4> The Motivation</h4>
+<p>
+At the same time, I've become fond of creating props with the Pepakura art
+style.  Pepakura involves decomposing a 3D model into a separated 2D mesh, 
+printing the pattern, and then folding it up into a real-life duplicate of
+the model. Of course, this process requires cutting out the printed pattern 
+by hand, generally one of the less-exciting steps.  
+<p>
+The solution?  It turns out that the HMC laser cutter cuts through paper like 
+butter! (... er, as we all might've expected.) By exporting the pattern to a .dxf
+file, one can skip the tediousness of cutting out the pattern and have a
+machine perform this operation more gracefully (and far more precisely) than 
+most of our scissor-equipped fingers. 
+</p>
+<p>
+Of course, I'll be departing from Mudd soon, so the only natural permanent 
+solution is to build my own paper laser-cutting tool.  
+With a bit more time and effort, countless hours can be saved 
+from hand-cutting with a glorious laser cutter to do the job automatically.  
+</p>
+
+<h4> Mechanical Design and Components</h4> 
+<p>
+Two-axis gantries aren't new; in fact, companies sell entire "linear motion 
+systems" tailored to your particular application.  For the "starving student," 
+though, I'll just have to settle with the satisfaction of building my own. 
+</p>
+
+<h5> The time-saver: 80/20 Extruded Aluminum Beams </h5>
+<p>
+Luckily, 80/20, the "erector set of the engineer," isn't too expensive. (The 
+brackets and myriad of connectors are a different story though.) This 
+is my first time exploring it as an option. Furthermore, McMaster-Carr provides
+ 3D Solidworks models of 80/20 and several brackets, a massive time-saving 
+when I started developing a 3d model.
+</p>
+
+<h5> The H-bot </h5> 
+<p>
+To move the laser platform along two axes, I've opted for an H-bot design. 
+H-bots provide the benefit of two-axis motion with a lighter moving platform
+as opposed to other gantries. The reason for the weight-loss? Both motors 
+are stationary and neither is located on any of the moving platforms. 
+In many extrusive 3D printers, one motor is typically located on one of
+the moving axes to move the extruder head. 
+</p>
+
+
+
+
+
+
+
+</div>
+
+    <div class="container">
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap-transition.js"></script>
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="../assets/js/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="../assets/js/bootstrap-carousel.js"></script>
+    <script src="../assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>
