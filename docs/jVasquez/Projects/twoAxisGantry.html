@@ -58,13 +58,17 @@
 
 
 
-
+<!--
 <h3 style="text-align: center;">The Two-Axis Gantry</h3>
 <center>
 <img src="../../assets/img/Projects/twoAxisGantry/twoAxisGantry.png" width=600>
 </center>
+-->
 
-
+<div class="span9" >
+<img src="../../assets/img/Projects/twoAxisGantry/twoAxisGantry.png" width=350 align="left" Hspace=10>
+<img src="../../assets/img/Projects/twoAxisGantry/fullGantry.jpg" width=350 align="left" Hspace=10>
+</div>
 
 <h3> Introduction</h3>
 
@@ -82,8 +86,9 @@ realizable with a bit of time and some programming effort.
 
 <h4> The Motivation</h4>
 <p>
-At the same time, I've become fond of creating props with the Pepakura art
-style.  Pepakura involves decomposing a 3D model into a separated 2D mesh, 
+At the same time, I've become fond of creating props with the 
+<a href="http://wiki.blender.org/index.php/Doc:2.4/Books/Fundamentals_of_Paper_Model_Design">paper modeling</a>
+art style.  paper modeling involves decomposing a 3D model into a separated 2D mesh, 
 printing the pattern, and then folding it up into a real-life duplicate of
 the model. Of course, this process requires cutting out the printed pattern 
 by hand, generally one of the less-exciting steps.  
@@ -110,7 +115,9 @@ though, I'll just have to settle with the satisfaction of building my own.
 
 <h5> The time-saver: 80/20 Extruded Aluminum Beams </h5>
 <p>
-Luckily, 80/20, the "erector set of the engineer," isn't too expensive. (The 
+Luckily, 
+<a href="http://www.mcmaster.com/#80/20-compatible-t-slotted-framing/=oelnix">80/20</a>,
+ the "erector set of the engineer," isn't too expensive. (The 
 brackets and myriad of connectors are a different story though.) This 
 is my first time exploring it as an option. Furthermore, McMaster-Carr provides
  3D Solidworks models of 80/20 and several brackets, a massive time-saving 
@@ -127,7 +134,60 @@ In many extrusive 3D printers, one motor is typically located on one of
 the moving axes to move the extruder head. 
 </p>
 
+<h3> The Build Log </h3>
+<p> I'll admit that the design took a few months CADing designs over and over 
+again until I had a build that was machinable, relatively inexpensive, and 
+easily to assemble.  For the precision motion, I had discovered a pile of 
+hardened rods and bushings on ebay, so I picked those up for far less than I would pay 
+from most online retailers. I worked with these rods and bushings as a design 
+constraint, about which the rest of the gantry was formed. <p>
+<p>
+As I soon realized, a number of other components were far out of my
+budget.  I also hoped not to spend too long in the machine shop making
+custom versions of my own parts that were difficult to reproduce.  To work 
+around these constraints, I opted to design parts that didn't require 
+a professional skill level to fabricate. </p>   
 
+<h4>DIY Pulleys</h4>
+<div class="span9" >
+<img src="../../assets/img/Projects/twoAxisGantry/beltPulleys.jpg" width=500 align="center" Hspace=10>
+</div>
+<br>
+With ease-of-reproducability in mind, I discovered a quick way to make DIY pulleys that
+simply involved sandwiching two delrin discs over a skate bearing.  I did
+machine the shafts, but all of the other components either already existed or
+were quickly reproduceable with the laser cutter. The net result works surprisingly 
+well.
+
+<h4> Adding Belt Tension</h4>
+<div class="span9" >
+<img src="../../assets/img/Projects/twoAxisGantry/gantryCenter.jpg" width=500 align="center" Hspace=10>
+</div>
+<br>
+To apply tension to the entire system, I needed a manner of fastening both ends
+of the belt together and applying tension to the entire system.  To prevent
+myself from buying a complicated part to do this job, I opted for a solution 
+similiar to the one shown 
+<a href="http://www.thingiverse.com/thing:31482">here</a>. 
+My tensioner also folds the belt over itself to fasten it, but I fixed both
+belt ends to separate plates and then joined those plates to a screw for
+adjustable tension.   
+
+<h4> Current Status: Septemter 9 </h4>
+Currently, the mechanical components for the gantry are complete.  In a few
+weeks, I'm hoping to etch a stepper motor driver to drive the two motors.  
+In a few months time, I'll have done more research on lasers to find out which
+laser to consider and how to keep my eyes safe in the process! Alas, school is 
+likely to slow down the work here just a bit though.
+
+
+
+<div class="span9">
+<h4> Resources </h4> 
+<ol>
+    <li><a href='https://docs.google.com/spreadsheet/ccc?key=0AodaAsGd6n41dEpTSzhwM2RzOVJrZlFucEJzNkxRLWc#gid=0'>Bill of Materials</a> </li> 
+</ol>
+</div>
 
 
 
