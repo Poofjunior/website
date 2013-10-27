@@ -65,11 +65,12 @@
 </center>
 -->
 
-<h3 style="text-align: center;">A CoreXY Implementation </h3>
-<div class="span9" >
-<img src="../../assets/img/Projects/twoAxisGantry/twoAxisGantry.png" width=350 align="left" Hspace=10>
-<img src="../../assets/img/Projects/twoAxisGantry/fullGantry.jpg" width=350 align="left" Hspace=10>
-</div>
+<h3 style="text-align: center;">A Core-XY Implementation </h3>
+<h4 style="text-align: center;">A brief discussion on overcoming
+drawbacks in an H-Bot design</h4>
+<p style="text-align:center">
+<img src="../../assets/img/Projects/coreXY/gantryFull.jpg" width=700>
+</p>
 
 <h3> Introduction</h3>
 
@@ -162,16 +163,8 @@ the moving axis does not twist in response to this motion.
 It's a small change in belt pattern, but it leads to a world 
 of difference in the real world.  With a CoreXY design, an extremely 
 rigid setup is no longer as critical a requirement as it was for an H-bot
-design. 
-</p>
-<p>
-For the budget engineering student, this means that all of precision parts 
-can be sourced from eBay, rather than a precision linear motion company. 
-With that encouragement, I dismantled my H-bot and repurposed the components
-to form a Core-XY design, and the results are just as expected. The moving 
-axis no longer twists as it did with the H-bot, and I can get away with 
-a working gantry machined within the tolerances capable of being made on our
-CNC mill.    
+design. Here's a brief walkthrough of some of the key features in this
+low-cost implementation:
 </p>
 
 <div class="span9">
@@ -190,7 +183,49 @@ offset of the second belt.
 </p>
 </div>
 
+</br>
+<div class="span9">
+<h5> Set Screws:</h5>
+<p style="text-align:center">
+<img src="../../assets/img/Projects/coreXY/setScrew.jpg" width=400 align="left" Hspace=10 Vspace=10> 
+</p>
+<p>
+I chose set screws to secure the shafts to the 80\20 angle plates. 
+These screws offer the benefit of later switching to a design with 
+slightly different dimensions.  
+</p>
+</div>
 
+
+<div class="span9">
+<h5> Non-coplanar belt:</h5>
+<p style="text-align:center">
+<img src="../../assets/img/Projects/coreXY/reuse.jpg" width=500 align="left" Hspace=10 Vspace=10> 
+</p>
+<p>
+The Core-XY design relies on a non-coplanar belt path to drive the center
+platform.  To handle the offset, the right motor, as well as its mating 
+belt, are offset above the second belt. In this manner, both belts remain 
+parallel to the plane about which the center platform moves. </br>
+The plates are identical to those from the H-bot with a few extra holes
+drilled into them.  Shoulder screws and silicone lubricant are 
+responsible for the smooth motion.  All parts involved in the belt drive
+were sourced from McMaster-Carr in this case.  
+</p>
+</div>
+
+<h4>Results and Conclusion</h4>
+Overall, the Core-XY remains true to its design principles. It's 
+straightforward to build and eliminates the need for machined 
+tolerances as tight as the H-bot. 
+For the budget engineering student, this means that all of precision parts 
+can be sourced from eBay, rather than a precision linear motion company. 
+With that encouragement, I dismantled my H-bot and repurposed the components
+to form a Core-XY design, and the results are just as expected. The moving 
+axis no longer twists as it did with the H-bot, and I can get away with 
+a working gantry machined within the tolerances capable of being made on our
+CNC mill.    
+</p>
 
 
 <h4> References:</h4>
