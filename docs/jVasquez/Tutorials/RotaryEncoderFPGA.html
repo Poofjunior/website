@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>joshuavasquez.com</title>
+    <title>FPGA Implementation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Joshua Vasquez">
@@ -27,7 +27,6 @@
     <link href='http://fonts.googleapis.com/css?family=Days+One|Titillium+Web' rel='stylesheet' type='text/css'>
 
   </head>
-
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -36,7 +35,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="../../../index.html">Joshua Vasquez</a>
+          <a class="brand" href="#">Joshua Vasquez</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li><a href="../about.html">About</a></li>
@@ -52,86 +51,87 @@
 
 
 
+
+
 <body data-spy="scroll" data-target=".bs-docs-sidebar">
 
-
-<div class="span2 bs-docs-sidebar">
-<ul class="nav nav-list bs-docs-sidenav affix">
-          <li><a href="#DuplicatingChips"><i class="icon-chevron-right"></i>Duplicating Chips</a></li>
-          <li><a href="#Section2"><i class="icon-chevron-right"></i>Section Two</a></li>
-          <li><a href="#Section3"><i class="icon-chevron-right"></i>Section Three</a></li>
-</ul>
-</div>
 
 
 
 <div class="span9">
 
 
-      <h1 style="text-align: center;">FPGA Design Techniques 101</h1>
-      <h3 style="text-align: center;">Part 0: Duplicating Digital ICs</h3>
+      <h3 style="text-align: center;">An FPGA Implementation</h3>
 <center>
-<img src="../../assets/img/Tutorials/OpticalRotaryEncoderTheory/encoderIntro.jpg" width=600>
+<img src="../../assets/img/Tutorials/RotaryEncoderFPGA/FPGA.jpg" width=700>
 </center>
-      <h2> The Preamble</h2>
-        <p> 
-FPGAs are powerful devices, allowing you to synthesize your own digital logic
-circuits and upload them to a piece of hardware that lets you use your 
-circuit in the real world.  
-<a href="http://hackaday.com/2011/12/30/so-you-wanna-learn-fpgas/">Someone else</a> 
-has said this better than I can: "With micro[controller]s you tell them what to 
-DO, with FPGA’s you tell them what to BE." 
-An FPGA is a chip that can be programmed to "become" another chip, a number of
-chips, or a custom-made chip altogether. This is the power of programmable 
-logic; you, the designer (or hobbyist?) can synthesize components that do 
-exactly what you want to them do.</p>
-
-<p>
-There is a catch, unfortunately. SystemVerilog, VHDL, and other programming 
-languages used to program FPGAs are slightly less intuitive that many other 
-languages. C and Python are primarily <i>procedural</i> programming languages.
-C++ and Java are primarily <i>object-oriented</i> programming languages. 
-SystemVerilog and VHDL are <i> descriptive</i> programming  languages.   
-If you haven't yet tried programming in a descriptive language (Prolog anyone?), 
-it's slightly different in mindset. This tutorial is the first of a few 
-tutorials oriented towards adjusting one's mindset for FPGA programming.  
+<h3> Intro</h3>
+<p> 
+In this example, 
+I've implemented a synchronous (driven by a clock) encoder decrypter on a DE0 
+Nano FPGA. 
 </p>
 
 
-
-<section id="DuplicatingChips">
 
 <div class="page-header">
-<h2> Duplicating Chips</h2>
-</div>
+<h3>A note about Synchronous Design</h3>
 <p>
-To enter the mindset of FPGA programming, let's start by copying an existing 
-digital Integrated Circuit (IC), the 
-<a href="http://pdf.datasheetcatalog.com/datasheet2/a/0sth3q6zylj9i17uxwhkdjd3ijwy.pdf">STP16C596</a>.
-This chip is a serial-to parallel converter.  The basic idea? Serial data arrives 
-on one pin and gets written to the pins on the chip (one bit in the serial data
-per pin on the microcontroller). 
+The encoder FSM (described in the 
+<a href='../OpticalRotaryEncoderTheory.html'>previous page</a>) details the 
+state logic of the flip flops.  For simplicity, I chose to implement
+synchronous, rather than asynchronous design.  Thus, the state machine
+evaluates the current conditions at a set clock frequency, rather than 
+when the current conditions change.  Asynchronous design, while having
+the advantage of being independent of a clock, is more complicated to 
+implement on an FPGA.  
+Unfortunatetly, if the Encoder waveform changes faster than the state 
+machine can evaluate it, the state machine will miss counts. 
+Howver, If the clock frequency of the FPGA is sufficiently faster than the 
+frequency of the encoder waveform, then the FPGA will be able to keep track
+of the rotations of the encoder. This is more clearly detailed in the image
+below, where the thin pattern of vertical lines represents instances in 
+time where the waveforms are sampled.  
 </p>
-</section>
+<img src="../../assets/img/Tutorials/RotaryEncoderFPGA/clk.svg" width=800>
+<p>
+A question worth asking: <i>Just how fast does the FPGA need to be to 
+ensure that it never misses a state change?</i> Here's 
+a back-of-the-envelope calculation: 
+</p>
+<p>
+From the datasheet, the encoder can spin at 30,000 [RPM] maximum. The encoder in 
+this example has a 
+<i>count-per-revolution</i> (CPR) of 500, bumped up to 2000, by reading 
+edge transitions. Thus, 30,000 [RPM] translates to 1 million edge transitions
+per second on the encoder output.  Luckily, the clock speed of the DE0 Nano 
+is 50 [Mhz], or 50 million evaluations of the waveform per second, a rate
+that's well above the max speed of the encoder. 
+</p>
 
-<section id="Section2">
+</div>
+
+
+
+<section id="Resources">
 <div class="page-header">
-<h2>SectionTwo </h2>
+<h3> Resources</h3>
+<a href='http://www.avagotech.com/docs/AV02-1132EN'>HEDS 9140 Optical Encoder Datasheet</a><br>
+
+
 </div>
-<p>
-The second Section
-</p>
 </section>
 
-<section id="Section3">
+<section id="ProjectFiles">
 <div class="page-header">
-<h2> Section3</h2>
-</div>
+<h3> Project Files</h3>
 <p>
-The third Section
+The full Source code can be downloaded from Github 
+<a href='https://github.com/Poofjunior/SynchronousQuadratureEncoder'>here</a>.
+Enjoy!
 </p>
+</div>
 </section>
-
 
     <div class="container">
     <!-- Le javascript
@@ -152,4 +152,16 @@ The third Section
     <script src="../assets/js/bootstrap-typeahead.js"></script>
 
   </body>
+
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+
+
+
+
+
+
+
+
 </html>

@@ -41,6 +41,7 @@
             <ul class="nav">
               <li><a href="../about.html">About</a></li>
               <li><a href="../projectsList.html">Projects</a></li>
+              <li><a href="../Research.html">Research</a></li>
               <li><a href="../tutorialsList.html">Tutorials</a></li>
               <li><a href="../resources.html">Resources</a></li>
             </ul>
@@ -67,7 +68,7 @@
 
 <div class="span9" >
 <h3 style="text-align: center;">CAN Bus Hardware Device</h3>
-<h4 style="text-align: center;">A pcb for non-invasively probing CAN Bus 
+<h4 style="text-align: center;">An Embedded System for non-invasively probing CAN Bus 
     packets and rotating a sonar underwater</h4>
 <p style="text-align:center">
 <img src="../../assets/img/Projects/CANBusDevice/fullBoard.jpg" width=500>
@@ -181,8 +182,60 @@ mounted on the robot.
 <div class="span9">
 <h4> Electronics Hardware Design</h4>
 <h5> Parsing the Robot Communication Protocol</h5>
-<h5> Adding additional data in fixed data packets</h5>
+<p>
+The signal communication between ROV and user control box is handled by a 
+CAN Bus interface, strung through a waterproof tether. This tether also carries 
+power and video signals, as well as communication signals for serial accessories. 
+</p>
+<p>
+The natural location to insert the rotating sonar mount accessory would 
+appear to be through the serial accessory lines on the ROV tether.  
+However, two daisy-chained sonars were implemented on these
+signals, hogging the majority of the bandwidth and ultimately necessary as a real-time 
+vision-aid for the ROV driver.  The remaining solution was to send
+signals to communicate along the same lines as the ROV's control signals. These signals 
+implement a tight CAN Bus closed-feedback loop between the ROV and the control box.  
+<center>
+<img src="../../assets/img/Projects/CANBusDevice/blockDiagram.svg"  align="middle" Hspace=10 Vspace=15>
+</center>
+</p>
+<h5> Probing for an Interface to the Sonar Mount</h5>
+<p>
+The CAN Bus interface, at the high-level, can string numerous devices along the same bus.
+The master can communicate with each of these devices individually through an addressing
+scheme.  Unfortunately, for the ROV, the master was the control box, an expensive system 
+which could not be reprogrammed to accept additional slave devices on the CAN Bus interface
+between the control box and ROV.  
+</p>
+<p>
+However, after further probing, I discovered that the packet sent from the control box to the
+ROV to the CAN Bus contained several unused bits; enough, in fact, to devise a protocol for 
+the sonar mount.  If the sonar mount could read these bits, then it could respond to the  
+data sent from the controller by rotating the mount by the desired amount.
+</p>
+<p>
+Due to the nature of the CAN Bus protocol, however, devices that are addressed by the master
+must acknowledge that they have received the packet. Thus, I could not simply program the 
+sonar mount accessory with the same address as the ROV, or both devices would attempt to 
+acknowledge the same packet, originally intended for just the ROV. The solution? To silently
+acknowledge the packet of the ROV. This capability is, in fact, possible using the MCP2515
+CAN Controller IC. Thus, the schematic for CAN Bus interfacing is as follows:
+</p>
+<center>
+<img src="../../assets/img/Projects/CANBusDevice/arduinoCAN_Mod_CAN_Interface.svg"  align="middle" Hspace=10 Vspace=15>
+</center>
+<p>
+From left to right, the raw CAN Bus signals are first sent to the MCP2551, which maps the differential 
+voltage signals to TTL logic levels acceptable by several digital ICs. The MCP2515 then parses this
+packet and stores the data in internal registers. Through an SPI interface, An Atmega328 microcontroller
+(not shown) then drives a servo, connected to the sonar mount, to the appropriate angle. For brevity, 
+the 
+<a href="../../assets/img/Projects/CANBusDevice/arduinoCAN_Mod.pdf">full schematic</a> is not
+shown.
+</p>
+
 <h5> A small form-factor PCB</h5>
+
 <center>
 <img src="../../assets/img/Projects/CANBusDevice/arduinoCAN_Mod.jpg" width="400" align="middle" Hspace=10 Vspace=15>
 </center>
@@ -191,28 +244,12 @@ The hardware task was well-defined: develop a hardware interface to
 probe the CAN Bus communication line without actively replying to 
 CAN messages directed at the robot. 
 Furthermore, due to the small-form-factor of the sonar mount on the outside of the robot, a small pcb was developed to fit inside the waterproof 
-housing.
+housing. To save time, I opted to etch the control board, rather than send it out.
 </p>
 <div class="span9">
 <img src="../../assets/img/Projects/CANBusDevice/pcbPrints.jpg" width="400" align="left" Hspace=10 Vspace=15>
 <img src="../../assets/img/Projects/CANBusDevice/vias.jpg" width="400" align="left" Hspace=10 Vspace=15>
 </div>
-<h4> Mechanical Design</h4>
-<h5> Designing for Field Wear</h5>
-<div class="span9">
-<img src="../../assets/img/Projects/CANBusDevice/finalBox.jpg" width="400" align="left" Hspace=10 Vspace=15>
-<img src="../../assets/img/Projects/CANBusDevice/finalBoxDetail.jpg" width="400" align="left" Hspace=10 Vspace=15>
-</div>
-<p>
-The main lid of the box is fixed with two O-ring seals, with groove depths
-calculated with the 
-<a href="http://www.parker.com/literature/ORD%205700%20Parker_O-Ring_Handbook.pdf">Parker O-ring Manual</a>.
-Since the box would be repeatedly opened for maintenance and inspection
-of the circuitry, this particular lid sealing is ideal, as it does not 
-induce severe mechanical wear on the box each time it is opened.  
-Additionally, no screws are threaded into the plastic housing; rather, 
-two bolts apply compressive force from opposing ends of the box.
-</p>
 <h4> Mechanical Design</h4>
 <h5> O-Ring Sealing</h5>
 <p>
@@ -221,9 +258,39 @@ housing: the shaft opening, where the sonar rotates, and the case opening,
 from which the electronics and servo are inserted. To ensure an underwater
 seal at a depth of 50 ft, I chose two types of o-ring seals: a ring seal 
 for rotating components, and a typical o-ring seal for the lid.
+The main lid of the box (shown below) is fixed with a typical O-ring seal, where groove depths
+were calculated with the 
+<a href="http://www.parker.com/literature/ORD%205700%20Parker_O-Ring_Handbook.pdf">Parker O-ring Manual</a>.
+</p>
+<h5> Designing for Field Wear</h5>
+<div class="span9">
+<img src="../../assets/img/Projects/CANBusDevice/finalBox.jpg" width="400" align="left" Hspace=10 Vspace=15>
+<img src="../../assets/img/Projects/CANBusDevice/finalBoxDetail.jpg" width="400" align="left" Hspace=10 Vspace=15>
+</div>
+<p>
+Since the box would be repeatedly opened for maintenance and inspection
+of the circuitry, this particular lid sealing is ideal, as it does not 
+induce severe mechanical wear on the box each time it is opened.  
+Additionally, no screws are threaded into the plastic housing; rather, 
+two bolts apply compressive force from opposing ends of the box.
 </p>
 
 <h4> Software Driver Modification</h4>
+<p>
+The ROV is ultimately controlled by a software driver implemented in Python.
+This driver constructs the data packets sent to the ROV to control 
+speed and direction of both motors.  Within this driver, I added additional 
+software control to control the new sonar Mount 
+</p>
+<center>
+<img src="../../assets/img/Projects/CANBusDevice/blockDiagramFull.svg"  align="middle" Hspace=10 Vspace=15>
+</center>
+
+<h4> Testing </h4>
+<p>
+This device is currently in its final stages of testing.  A full underwater test will be conducted before 
+December 15th.
+</p>
 
 </div>
 
