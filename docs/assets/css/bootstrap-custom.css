@@ -208,7 +208,7 @@ textarea {
   font: 0/0 a;
   color: transparent;
   text-shadow: none;
-  background-color: transparent;
+  background-color: #ffffff/*transparent*/;
   border: 0;
 }
 
@@ -223,21 +223,21 @@ textarea {
 
 body {
   margin: 0;
-/*font-family: 'Titillium Web', sans-serif;*/
-  font-family: sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
-  color: #333333;
-  background-color: #ffffff;
+  color: #696760 /*#DED19E*/;
+  background-color:#DED19E/*#696760*/ ;
 }
 
+/* Change link color here: */
 a {
-  color: #0088cc;
+  color: #C99720/*#E3CA44*/;
   text-decoration: none;
 }
 
 a:hover {
-  color: #005580;
+  color: #BD6711/*#F7E379*/;
   text-decoration: underline;
 }
 
@@ -700,7 +700,7 @@ a.text-error:hover {
 }
 
 .text-info {
-  color:  #3a87ad;
+  color: #3a87ad;
 }
 
 a.text-info:hover {
@@ -979,7 +979,7 @@ pre {
   word-wrap: break-word;
   white-space: pre;
   white-space: pre-wrap;
-  background-color: #f5f5f5;
+  background-color: #CCCAC8;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
   -webkit-border-radius: 4px;
@@ -1198,7 +1198,7 @@ input[type="checkbox"]:focus {
 
 .uneditable-input,
 .uneditable-textarea {
-  color:  #999999;
+  color: #999999;
   cursor: not-allowed;
   background-color: #fcfcfc;
   border-color: #cccccc;
@@ -5991,8 +5991,7 @@ a.badge:hover {
 }
 
 .hero-unit {
-/*
-  padding: 60px;
+   padding: 60px;
   margin-bottom: 30px;
   font-size: 18px;
   font-weight: 200;
@@ -6002,12 +6001,6 @@ a.badge:hover {
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
           border-radius: 6px;
-*/
-  color: #305079;
-  background-image:url('pcb_compressed.jpg');
-  background-size:cover;
-  height:300px;
-  opacity: .85;
 }
 
 .hero-unit h1 {
