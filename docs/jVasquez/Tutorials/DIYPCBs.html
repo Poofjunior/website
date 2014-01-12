@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>FPGA Implementation</title>
+    <title>Double-Sided PCB Etching</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Joshua Vasquez">
@@ -61,53 +61,34 @@
 <div class="span9">
 
 
-      <h3 style="text-align: center;">An FPGA Implementation</h3>
+      <h2 style="text-align: center;">Notes on Double-Sided PCB Etching</h2>
+      <h3 style="text-align: center;">Halfway there to halfway-decent PCBs</h3>
 <center>
 <img src="../../assets/img/Tutorials/RotaryEncoderFPGA/FPGA.jpg" width=700>
 </center>
-<h3> Intro</h3>
 <p> 
-In this example, 
-I've implemented a synchronous (driven by a clock) encoder decrypter on a DE0 
-Nano FPGA. 
+For me, PCB etching is still very much an experimental craft. Getting good 
+results tends to take several tries. Luckily, I've ironed out (quite literally)
+most of the techniques that don't work as easily as stated.
+<br>
+
+What follows is an honest collection of notes for DIY double-sided PCB ecthing.
+These notes help eliminate most of the easy pitfalls in the etching process. 
+According to notes and forums online, I'm using the <i>toner-transfer</i> 
+method with <i>cupric chloride</i>. 
 </p>
 
 
 
 <div class="page-header">
-<h3>A note about Synchronous Design</h3>
+<h3>Materials</h3>
 <p>
-The encoder FSM (described in the 
-<a href='../OpticalRotaryEncoderTheory.html'>previous page</a>) details the 
-state logic of the flip flops.  For simplicity, I chose to implement
-synchronous, rather than asynchronous design.  Thus, the state machine
-evaluates the current conditions at a set clock frequency, rather than 
-when the current conditions change.  Asynchronous design, while having
-the advantage of being independent of a clock, is more complicated to 
-implement on an FPGA.  
-Unfortunatetly, if the Encoder waveform changes faster than the state 
-machine can evaluate it, the state machine will miss counts. 
-Howver, If the clock frequency of the FPGA is sufficiently faster than the 
-frequency of the encoder waveform, then the FPGA will be able to keep track
-of the rotations of the encoder. This is more clearly detailed in the image
-below, where the thin pattern of vertical lines represents instances in 
-time where the waveforms are sampled.  
+Often replacing the right tool with the wrong tool doesn't just yield a 
+working, but less-admirable result; it usually doesn't result in anything. 
+Using the right tools has been key for getting a good PCB.
 </p>
-<img src="../../assets/img/Tutorials/RotaryEncoderFPGA/clk.svg" width=800>
-<p>
-A question worth asking: <i>Just how fast does the FPGA need to be to 
-ensure that it never misses a state change?</i> Here's 
-a back-of-the-envelope calculation: 
-</p>
-<p>
-From the datasheet, the encoder can spin at 30,000 [RPM] maximum. The encoder in 
-this example has a 
-<i>count-per-revolution</i> (CPR) of 500, bumped up to 2000, by reading 
-edge transitions. Thus, 30,000 [RPM] translates to 1 million edge transitions
-per second on the encoder output.  Luckily, the clock speed of the DE0 Nano 
-is 50 [Mhz], or 50 million evaluations of the waveform per second, a rate
-that's well above the max speed of the encoder. 
-</p>
+<ol>
+</ol>
 
 </div>
 
