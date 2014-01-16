@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Nintendo Gamecube Robot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Joshua Vasquez">
+
+    <!-- Le styles -->
+    <link href="../../assets/css/bootstrap-custom.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="../../assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../../assets/ico/favicon.png">
+    <!-- Custom Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Days+One|Titillium+Web' rel='stylesheet' type='text/css'>
+
+  </head>
+
+   <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="../../../index.html">Joshua Vasquez</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="../about.html">About</a></li>
+              <li><a href="../projectsList.html">Projects</a></li>
+              <li><a href="../Research.html">Research</a></li>
+              <li><a href="../tutorialsList.html">Tutorials</a></li>
+              <li><a href="../resources.html">Resources</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+
+
+
+<div class="span9">
+<center>
+<h2>Gamecube Robot in Disguise</h2>
+<h4>or: how to build a servo gear transmission</h4>
+</center>
+<br>
+</div>
+
+<div class="span9">
+
+<p>
+As opposed to our classic LED, laser diodes are a bit trickier to setup. 
+First, they're a bit more sensitive to voltage spikes.
+A static discharge can render a pricey diode now a useless trinket to add to 
+the pile of nice-looking paperweights. 
+Next, the reverse voltage can be as little as a few volts, which means
+that plugging it into the system backwards can also fry it.   
+Addiionally, laser diodes are heat-sensitive, and overheating them can also
+lead to their destruction.  
+</p>
+
+<h3>A Note on Safety</h3>
+<p>
+Apart from the risks to the diode, the diode also poses a risk to the operator.
+In a matter of microseconds, a rogue beam can render one blind permanently.
+</p>
+
+<p>
+With this precaution, if you pursue this avenue of working with lasers, keep 
+the risks in mind, make yourself aware of them, and wear <i>the right</i> 
+goggles. By <i>the right</i> goggles, I'm referring to goggles that 
+sufficiently protect against the wavelength that you're working with.
+</p>
+<center>
+<IMG SRC='../../assets/img/Projects/laserDiodeDriver/safetyWarning.svg' width="600" Hspace="10"></A>
+</center>
+
+<p>
+For this project, I've chosen goggles that are rated as OD6+ within the
+445 [nm] range. The "OD" rating, refers to how many orders of magnitude by 
+which the input laser power will be reduced before passing through the 
+eyepiece. Thus, a 2[W] laser shining through a lense with an OD6 rating exits
+through the other end with 2 microwatts of power.
+</p>
+
+
+<h3>The Driver</h3>
+<IMG SRC='../../assets/img/Projects/laserDiodeDriver/schematic.svg' width="800" Hspace="10"></A>
+
+<h4>Power Output</h4>
+<p>
+In many cases, the LM117 seems to be <i>the go-to</i> solution for driving 
+small laser diodes. After all, its datasheet lists a simple circuit for 
+reconfiguring it as a constant current source. I wanted to find a solution 
+that could handle just a bit more current without the added complexity of 
+designing a constant current source from scratch. With a bit of online catalog
+hunting, I discovered the LM338, another adjustable voltage regulator that 
+could source up to 5[A]. Like the LM117, the LM338 can also be  
+</p>
+
+<h4>Diode Protection</h4>
+<p>
+Because the laser diode is vulnerable to voltage spikes, I've added two diodes
+to the output circuitry. The first is a zener diode, limiting the operating 
+voltage of the diode to 4.6[v] and preventing voltage spikes in the forward 
+direction. The second diode is a schottky diode, preventing voltage spikes 
+in the reverse direction. 
+</p>
+
+<h4>Adding an Enable</h4>
+<p>
+With the intent of turning on the laser with a microcontroller, I've added an
+enable with an n-channel  mosfet. 
+However, because the mosfet is above the load and because a microcontroller 
+operating voltage is only a few volts, A high-side driver is 
+needed to turn the mosfet <i>fully on</i>. With the IR2101, the 
+voltage at the gate is ensured to be substantially above the voltage at the 
+source. while the input voltage now needed to turn on the laser is within 
+the range of 3.3[v] logic.
+</p>
+
+<h3>An Etched PCB</h3> 
+<br>
+<center>
+<a href="http://www.flickr.com/photos/77947059@N05/11861780574/" title="High/LowSideDriver by Poofjunior, on Flickr"><img src="http://farm4.staticflickr.com/3823/11861780574_81ca07eb7f.jpg" width="500" height="281" alt="High/LowSideDriver"></a>
+<br>
+</center>
+<p>
+In the spirit of 
+making this project standalone and off the breadboard, I etched a 
+double-sided pcb with copper(II) chloride (aka: cupric chloride). A surface
+mount header provides easy interconnectivity with a microcontroller an external
+power supply. Since the system only draws about 1[A], these header pins aren't
+a bad choice for interconnectivity.
+</p>
+<center>
+<IMG SRC='../../assets/img/Projects/laserDiodeDriver/top.jpg' width="200" Hspace="10"></A>
+<IMG SRC='../../assets/img/Projects/laserDiodeDriver/bottom.jpg' width="200" Hspace="10"></A>
+</center>
+<br>
+<p>
+To cut out jumper wires entirely, I made two layers, and connected top and 
+bottom with vias made by drilling holes and soldering snipped wire. For a DIY 
+board, I'd recommend checking continuity as each via is created, since this is 
+an easy spot for a cold solder joint. 
+</p>
+
+<h3>Results</h3> 
+<p>
+So far, the driver sources about 960[mA] and successfully drives a 2[W], 445 
+[nm] diode from ebay. As time goes on, I'll be implementing a driver like this
+one in a paper laser cutter project hopefully later this year. 
+</p>
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+    <div class="container">
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap-transition.js"></script>
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="../assets/js/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="../assets/js/bootstrap-carousel.js"></script>
+    <script src="../assets/js/bootstrap-typeahead.js"></script>
+
+  </body>
+</html>

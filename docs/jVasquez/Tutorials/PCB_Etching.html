@@ -61,7 +61,9 @@
 <div class="span2 bs-docs-sidebar">
 <ul class="nav nav-list bs-docs-sidenav affix">
           <li><a href="#Materials"><i class="icon-chevron-right"></i>Materials</a></li>
-          <li><a href="#Section3"><i class="icon-chevron-right"></i>Section Three</a></li>
+          <li><a href="#DesignGuidelines"><i class="icon-chevron-right"></i>Design Guidelines</a></li>
+          <li><a href="#PatternTransfer"><i class="icon-chevron-right"></i>Pattern Transfer</a></li>
+          <li><a href="#Etching"><i class="icon-chevron-right"></i>Etching</a></li>
 </ul>
 </div>
 
@@ -77,36 +79,34 @@
 </center>
       <h2> Introduction</h2>
 <p> 
-When I began my foray into digital electronics, I believed that the only limit 
+When I began the leap into digital electronics, I believed that the only limit 
 to what I could design and build would be my imagination. I quickly 
-learned,though, that it was actually my breadboard. As I grew more confident
-in developing more complicated projects, I found more breadboards being 
-consumed at once. I wanted to spin my own boards for permanent projects, but 
-I wasn't yet confident enough in my digital design to take a breadboarded 
-project, develop a printed circuit board implementation, and send it 
+learned,though, that it was actually the breadboard. 
+I longed to spin my own boards for permanent projects, but 
+I wasn't yet confident enough to take a breadboarded 
+project, design a printed circuit board implementation, and send it 
 out to be fabricated on a whim. 
 </p>
 <p>
-To gain confidence, I began etching boards to bring a project from start to
-finish. Since then, I've also sent out a few boards to be fabrictated, but
-I've found that etching still has a place as a higher level of prototyping.</p> 
+To gain some confidence, I began etching boards to bring a project from start to
+finish. While sending out the board is the real finishing point to a project, 
+I've found that etching still has a place as a method of fast prototyping.</p> 
 <p>
-To the hobbyist, pcb etching enables communication with a number of additional 
+To the hobbyists, pcb etching enables us to communicate with a number of additional 
 chips only available 
 in surface-mount packages. It also enables fabrication of breakout boards for 
 these surface-mount components for testing on a breadboard.  
 </p>
 <p>
-Actually realizing this dream of etching my own boards took two years to 
+Actually realizing this dream of etching DIY boards took two years to 
 finally nail.  While a number of other electronics gurus make the process seem
 straightforward, there are a number of undisclosed pitfalls that I learned
-the hard way. Consequently, I've done my best to outline my own workflow for
-etching boards. While a number of others have done this, I'll also explain the
-reasoning behind a number of procedures.
+the hard way. As a result, I've done my best to outline my own workflow for
+etching boards. I hope these notes serve future digital designers.
 </p>
 <p>
 Etching boards is still an ongoing learning process for me. As I learn more, 
-I will continue to keep this page up-to-date.
+I'll continue to keep this page up-to-date.
 </p>
 
 
@@ -124,9 +124,9 @@ is toxic and unusable.  This waste etchant must be disposed through proper
 hazardous waste management, a process that often involves a charge. 
 </p>
 <p>
-A direct alternative to ferric chloride is cupric chloride.  Cupric chloride, 
+An alternative to ferric chloride is cupric chloride.  Cupric chloride, 
 aka copper(II) chloride, is formed by reacting hydrochloric acid with oxygen
-and Copper. This process, must be performed in a well-ventilated area 
+and Copper. This process must be performed in a well-ventilated area 
 (ideally: a fume hood) as the reaction can give off chlorine gas as well. 
 The product: a solution of cupric cholride, can be used as an etchant. 
 </p>
@@ -205,6 +205,12 @@ or not, when armed with tweezers, surface-mount soldering is actually easier
 than it looks, plus your boards look way more professional and have a thinner
 profile from mostly flat components.)
 
+<h3>Painter's Tape</h3>
+Under high heat, other tapes tend to melt. Painter's tape, however, survives
+the pattern transfer heating process without any problems. It also does the 
+trick of sticking just securely enough to hold the pattern while also being weak 
+enough to remove by hand. Finally, it softens under water, allowing it to be
+more easily removed.
 </div>
 
 </section>
@@ -212,7 +218,6 @@ profile from mostly flat components.)
 <section id="DesignGuidelines">
 <div class="page-header">
 <h2>Design Guidelines</h2>
-</div>
 <h3>Routing Angles</h3>
 In developing a DIY board, it's best to avoid 90-degree angles. According to 
 forums and a few others far more skilled that I, etchant tends to remain in
@@ -240,6 +245,7 @@ board layouts, but
 <a href='http://www.elmac.co.uk/pdfs/Lord_of_the_board.pdf'>this document</a>
 gives an overview about some aspects to consider.
 </p>
+</div>
 </section>
 
 
@@ -307,7 +313,43 @@ such that it begins drilling in the right location.
 </center>
 </ol>
 <h3>Securing the Pattern</h3>
-Once the boards have been sized, 
+<p>
+Once the holes have been drilled, the three layers can be aligned and secured
+with blue tape. I slide the needles through one layer just far enough to hold 
+the other two layers, and then slip the other two layers in through the holes.  
+I'll then push the ends of the exposed tips into cardboard to hold the pattern
+as I secure it with tape.
+</p>
+<center>
+<a href="http://www.flickr.com/photos/77947059@N05/11850854646/" title="PatternTransfer1 by Poofjunior, on Flickr"><img src="http://farm8.staticflickr.com/7329/11850854646_cf96d3fbcb_n.jpg" width="320" height="180" alt="PatternTransfer1"></a>
+<a href="http://www.flickr.com/photos/77947059@N05/11850061705/" title="PatternTransfer2 by Poofjunior, on Flickr"><img src="http://farm6.staticflickr.com/5497/11850061705_904b45f1f5_n.jpg" width="320" height="180" alt="PatternTransfer2"></a>
+</center>
+<p>
+When applying tape only apply it to three sides of the pattern, leaving one side
+exposed to remain as a starting point for removal. I also recommend creasing 
+the tape down onto the pattern to ensure that it doesn't slip as the three 
+layers pass through the laminator for transfer.
+</p>
+<center>
+<a href="http://www.flickr.com/photos/77947059@N05/11850493474/" title="CreaseDetail by Poofjunior, on Flickr"><img src="http://farm6.staticflickr.com/5488/11850493474_140a442815_z.jpg" width="640" height="360" alt="CreaseDetail"></a>
+</center>
+
+<h3>Transferring the Pattern</h3>
+<p>
+I pass the pattern through a laminator about 4 to 5 times. Following this
+procedure, I'll immediately submerge the entire piece in cold water to 
+"flash-cool" the piece. This rapid cooling process helps transfer the pattern 
+off of the vinyl as the vinyl contracts slightly in response to the temperature
+change.
+</p>
+<center>
+<a href="http://www.flickr.com/photos/77947059@N05/11850365613/" title="PatternTransfer by Poofjunior, on Flickr"><img src="http://farm8.staticflickr.com/7346/11850365613_c84dae4c5d.jpg" width="320" height="180" alt="PatternTransfer"></a>
+<a href="http://www.flickr.com/photos/77947059@N05/11850890466/" title="PatternTransfer2 by Poofjunior, on Flickr"><img src="http://farm3.staticflickr.com/2894/11850890466_65994b7b73.jpg" width="320" height="180" alt="PatternTransfer2"></a>
+</center>
+<p>
+The painter's tape can be sliced at the crease with an exacto knife. After the 
+piece has cooled, I'll gently peel away the pattern under cold running water. 
+</p>
 
 <h3>Sealing the Pattern</h3>
 <p>
@@ -346,23 +388,22 @@ with permanent marker prior to etching. Otherwise, they would've emerged pitted
 </div>
 </section>
 
-<section id="Sealing">
-<div class="page-header">
-<h2>Securing the Pattern</h2>
-<p>
-The third Section
-</div>
-</p>
-</section>
-
 <section id="Etching">
 <div class="page-header">
 <h2>The Etching Process</h2>
 <p>
-
+Etching can be made faster under warm conditions (slightly above 30 degree C).
+As <a href="http://www.instructables.com/id/Stop-using-Ferric-Chloride-etchant!--A-better-etc/">The Real Elliot</a>
+and <a href="http://members.optusnet.com.au/~eseychell/PCB/etching_CuCl/index.html">Adam Seychell</a>
+explain thoroughly, the etching reaction occurs on the surface of the board
+forming cuprous chloride. Consequently, agitating the board causes this thin 
+layer of cuprous chloride to disappate off of the board surface and expose more
+copper to the etchant. 
 </p>
 </div>
 </section>
+
+<p> Questions or Comments? Feel free to send me an email.</p>
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 
