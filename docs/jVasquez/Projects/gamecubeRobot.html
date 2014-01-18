@@ -58,7 +58,7 @@
 <div class="span9">
 <center>
 <h2>Gamecube Robot in Disguise</h2>
-<h4>or: how to build a servo gear transmission</h4>
+<h4>or: building a budget drive train transmission from servo replacment gears</h4>
 </center>
 <br>
 </div>
@@ -66,108 +66,149 @@
 <div class="span9">
 
 <p>
-As opposed to our classic LED, laser diodes are a bit trickier to setup. 
-First, they're a bit more sensitive to voltage spikes.
-A static discharge can render a pricey diode now a useless trinket to add to 
-the pile of nice-looking paperweights. 
-Next, the reverse voltage can be as little as a few volts, which means
-that plugging it into the system backwards can also fry it.   
-Addiionally, laser diodes are heat-sensitive, and overheating them can also
-lead to their destruction.  
+With yet another generation of game consoles on the horzion, what on earth will
+we do with all of previous consoles?  Now backlogged by two generations, the
+good ol' Nintendo Gamecube sits patienty in many closets. I decided that it 
+deserved some fresh air, so I took mine apart and turned it into a robot.
+</p>
+<p>
+Hmm, by robot, this Gamecube Bot is actually slightly more of an rc toy than
+a robot in its current state. However, featuring a differential drivetrain,
+it's just begging for great research to be done with it! 
 </p>
 
-<h3>A Note on Safety</h3>
+<h3>Design</h3>
 <p>
-Apart from the risks to the diode, the diode also poses a risk to the operator.
-In a matter of microseconds, a rogue beam can render one blind permanently.
+Design a high-end research-worthy robot platform on-the-cheap? Challenge 
+accepted. As many of us bot-designers over at HMC are learning, designing
+a drive train transmission takes time. 
+Why? For us, our biggest hump was choosing the gears 
+needed for an acceptable gear ratio. With brushless motors revving up to 
+10000[rpm], a transmission is vital to slow down that motor to an acceptable 
+driving speed. 
 </p>
-
 <p>
-With this precaution, if you pursue this avenue of working with lasers, keep 
-the risks in mind, make yourself aware of them, and wear <i>the right</i> 
-goggles. By <i>the right</i> goggles, I'm referring to goggles that 
-sufficiently protect against the wavelength that you're working with.
+Furthermore, choosing each gear separately from a supplier like McMaster-Carr
+or SDP-SI can send us digging deep into our wallets. The solution? Find an
+already-existing set of gears. In our case, a few of us have found that 
+the HS-815/805BB servo replacement gears work shockingly well as a full
+transmission for 8-to-12[lb] differential-drive bots.  
+(I owe this trick to JB at the 
+<a href='http://projectsbyjb.blogspot.com/2013/07/new-project-mini-combat-robot.html'>Secret Underwater Base / Machine Shop</a>,
+ who gave it a shot first and sent me the gear CAD files!) 
+</p> 
+<p>
+This is my first shot at seriously working with gears, apart from the classic
+LEGOs of my past. The main principles are like so:
+<ul>
+<li> Gears of identical diametrical pitch can mesh together
+<li> Gear ratios are given by the ratio of teeth between the driving and driven gears
+<li> Gears mesh by mating their pitch circles tangent to each other. (Plus a wee-bit more space for added backlash)
+<li> Common gears generally have the  worldwide-accepted pressure angle of 20 degrees
+<li> Gears often come in standard Metric and US sizes. This is reflected in their pitch diameters
+</ul>
+</p>
+<p>
+Gears mesh at the imaginary circles called their pitch circles, a property 
+derived from tooth count and pitch. 
 </p>
 <center>
-<IMG SRC='../../assets/img/Projects/laserDiodeDriver/safetyWarning.svg' width="600" Hspace="10"></A>
+<IMG SRC='../../assets/img/Projects/gamecubeRobot/meshingGears.png'>
+</center>
+<p>
+To make the gear stage shape a bit easier to design, I created a Solidworks
+Assembly using the gear files. I resized them to their pitch diameters and 
+mated them tangent to each other so that I could freely position them while
+ensuring that each stage touched the next. (One quick note: I actually made the
+gears a wee-bit bigger than their pitch diameters, adding some backlash, to 
+permit the gears to spin more smoothly.)
+</p>
+<center>
+<a href="http://www.flickr.com/photos/77947059@N05/11915172665/" title="gearLocations by Poofjunior, on Flickr"><img src="http://farm4.staticflickr.com/3678/11915172665_2529be3f5b_n.jpg" width="320" height="202" alt="gearLocations"></a>
+</center>
+<p>
+The pinion gear was a bit tricky to find. The servo replacement gears are 
+metric, and finding metric pinion gears with the right inner shaft diameter
+became another hunting game that I didn't want to play--especially if I 
+happened to find the right gear from a limited line of one vendor's rc car. 
+Luckily, 64-pitch US gears can mate with their metric cousins of comparable 
+pitch, a feature that expanded the gear-selection wide enough to find the right
+pinion gear. 
+</p>
+
+
+<h3>Machining</h3>
+<p>
+To ensure that the CAD files for the gear offsets would work, I made a quick 
+test-plate with matching gear offets in the actual design. I was fortunate to 
+catch small misalignment errors here, rather than in the actual part.
+</p>
+<center>
+<a href="http://www.flickr.com/photos/77947059@N05/11850479963/" title="TestPlate by Poofjunior, on Flickr"><img src="http://farm6.staticflickr.com/5524/11850479963_a0549783f3_n.jpg" width="320" height="180" alt="TestPlate"></a>
 </center>
 
 <p>
-For this project, I've chosen goggles that are rated as OD6+ within the
-445 [nm] range. The "OD" rating, refers to how many orders of magnitude by 
-which the input laser power will be reduced before passing through the 
-eyepiece. Thus, a 2[W] laser shining through a lense with an OD6 rating exits
-through the other end with 2 microwatts of power.
-</p>
-
-
-<h3>The Driver</h3>
-<IMG SRC='../../assets/img/Projects/laserDiodeDriver/schematic.svg' width="800" Hspace="10"></A>
-
-<h4>Power Output</h4>
-<p>
-In many cases, the LM117 seems to be <i>the go-to</i> solution for driving 
-small laser diodes. After all, its datasheet lists a simple circuit for 
-reconfiguring it as a constant current source. I wanted to find a solution 
-that could handle just a bit more current without the added complexity of 
-designing a constant current source from scratch. With a bit of online catalog
-hunting, I discovered the LM338, another adjustable voltage regulator that 
-could source up to 5[A]. Like the LM117, the LM338 can also be  
-</p>
-
-<h4>Diode Protection</h4>
-<p>
-Because the laser diode is vulnerable to voltage spikes, I've added two diodes
-to the output circuitry. The first is a zener diode, limiting the operating 
-voltage of the diode to 4.6[v] and preventing voltage spikes in the forward 
-direction. The second diode is a schottky diode, preventing voltage spikes 
-in the reverse direction. 
-</p>
-
-<h4>Adding an Enable</h4>
-<p>
-With the intent of turning on the laser with a microcontroller, I've added an
-enable with an n-channel  mosfet. 
-However, because the mosfet is above the load and because a microcontroller 
-operating voltage is only a few volts, A high-side driver is 
-needed to turn the mosfet <i>fully on</i>. With the IR2101, the 
-voltage at the gate is ensured to be substantially above the voltage at the 
-source. while the input voltage now needed to turn on the laser is within 
-the range of 3.3[v] logic.
-</p>
-
-<h3>An Etched PCB</h3> 
-<br>
-<center>
-<a href="http://www.flickr.com/photos/77947059@N05/11861780574/" title="High/LowSideDriver by Poofjunior, on Flickr"><img src="http://farm4.staticflickr.com/3823/11861780574_81ca07eb7f.jpg" width="500" height="281" alt="High/LowSideDriver"></a>
-<br>
-</center>
-<p>
-In the spirit of 
-making this project standalone and off the breadboard, I etched a 
-double-sided pcb with copper(II) chloride (aka: cupric chloride). A surface
-mount header provides easy interconnectivity with a microcontroller an external
-power supply. Since the system only draws about 1[A], these header pins aren't
-a bad choice for interconnectivity.
+My first shot at press-fitting the servo gear shafts resulted in a crooked 
+pin. Consequently, I made a second thicker plate with matching offsets but slip-fit
+holes to hold the pins as I press-fit them into the frame.
 </p>
 <center>
-<IMG SRC='../../assets/img/Projects/laserDiodeDriver/top.jpg' width="200" Hspace="10"></A>
-<IMG SRC='../../assets/img/Projects/laserDiodeDriver/bottom.jpg' width="200" Hspace="10"></A>
+<a href="http://www.flickr.com/photos/77947059@N05/11998238204/" title="PressFitAlignment by Poofjunior, on Flickr"><img src="http://farm4.staticflickr.com/3820/11998238204_06c419aa49.jpg" width="500" height="281" alt="PressFitAlignment"></a>
 </center>
-<br>
+
+Following the first transmission's completion and lubrication with silicone 
+spray, we gave it a spin down in the shops. (That jiggly spacer was replaced!)
+<h4>Drive Train Initial Test</h4>
+<center>
+<iframe width="320" height="180" src="//www.youtube.com/embed/p8CYwb18Eh8" frameborder="0" allowfullscreen></iframe>
+</center>
+(That jiggly spacer was replaced!)
+
+<h3>Implementation</h3>
 <p>
-To cut out jumper wires entirely, I made two layers, and connected top and 
-bottom with vias made by drilling holes and soldering snipped wire. For a DIY 
-board, I'd recommend checking continuity as each via is created, since this is 
-an easy spot for a cold solder joint. 
+Once the two transmissions were created (correctly this time!), I zippy-tied
+them together with a steel plate from an old hard drive. (Ah, having a scrap
+pile is a lovely thing!) Following the crude assembly, we spun some initial
+outdoor tests:
+</p>
+<center>
+<h4> Skeletal Drive Train Outdoor Testing</h4>
+<iframe width="640" height="360" src="//www.youtube.com/embed/AJMVFgwLAJs" frameborder="0" allowfullscreen></iframe>
+</center>
+
+<h4>Signal Mixing for Differential Drive Control</h4>
+<p>
+The differential drive train is driven with two brushless motors, one per side.
+Each of these brushless motors is driven by a brushless motor controller that
+accepts PWM input signals from the rc receiver. Since each motor is controlled
+by a separate channel, these channels must be mapped to a control-stick scheme
+that makes sense; otherwise, the controls are  
+offset by 45-degrees, making the driving experience a bit strange.
+Rather than remapping the channel output signals with an 
+embedded board like an Arduino, it's much cheaper
+to place in a V-tail mixer cable between the two channels. (They're only $3.) 
+(The video above is actually before I snagged a mixer.) 
 </p>
 
-<h3>Results</h3> 
+<h3>Outlooks</h3> 
 <p>
-So far, the driver sources about 960[mA] and successfully drives a 2[W], 445 
-[nm] diode from ebay. As time goes on, I'll be implementing a driver like this
-one in a paper laser cutter project hopefully later this year. 
+I'm thrilled that the servo-gear transmission works so well. In fact, with some
+more effort, I'm convinced that a cheaper laser-cuttable edition is on its way
+in the near future. For the budding Arduino hobbyist, this could be the 
+beginning of an awesome new development platform with brushless motors. 
+Alas, only time will tell. 
+
+Also, now that I've got a hardware platform to work with outside the labs, I'd like
+to give some budget mouse odometry a shot to see how well I can get it to track
+it's position for future state-estimation projects.
 </p>
+
+<h3>References</h3> 
+<ol>
+<li> <a href='http://www.sdp-si.com/D805/D805_PDFS/Technical/8050T007.pdf'>SDP/SI Notes on Metric Gears</a> 
+<li>
+<li>
+</ol>
 
 </div>
 
