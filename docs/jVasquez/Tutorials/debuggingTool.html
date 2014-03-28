@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>joshuavasquez.com</title>
+    <title>Debugging Tools</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Joshua Vasquez">
@@ -11,9 +11,6 @@
     <link href="../../assets/css/bootstrap-custom.css" rel="stylesheet">
     <style>
       body {
-            /*background-image:url('../../assets/img/Tutorials/PCB_Etching/arduinoCAN_Mod_forWeb.svg');
-            background-repeat:no-repeat;
-            background-size:contain;*/
         padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
       }
     </style>
@@ -60,20 +57,89 @@
 
 <div class="span2 bs-docs-sidebar">
 <ul class="nav nav-list bs-docs-sidenav affix">
-          <li><a href="#Materials"><i class="icon-chevron-right"></i>Materials</a></li>
-          <li><a href="#DesignGuidelines"><i class="icon-chevron-right"></i>Design Guidelines</a></li>
-          <li><a href="#PatternTransfer"><i class="icon-chevron-right"></i>Pattern Transfer</a></li>
-          <li><a href="#Etching"><i class="icon-chevron-right"></i>Etching</a></li>
+          <li><a href="#Introduction"><i class="icon-chevron-right"></i>Introduction</a></li>
+          <li><a href="#GDBScenarios"><i class="icon-chevron-right"></i>GDB Scenarios</a></li>
+          <li><a href="#TheProcedure"><i class="icon-chevron-right"></i>Valgrind Scenarios</a></li>
 </ul>
 </div>
+
+
+
 <div class="span9">
 
 
+<h3 style="text-align: center;">Debugging with GDB and Valgrind</h3>
+<h4 style="text-align: center;">Common Scenarios and their Commands</h4>
 
-
-
-
+<section id="Introduction">
+<div class="page-header">
+<h3> Introduction</h3>
+<p> 
+Debugging with GDB and Valgrind often sends me hunting through the web looking 
+for the right input arguments for various debugging scenarios. Here's  
+a few common scenarios and their commands to save us from reading the
+man-page documentation.
+</p>
 </div>
+</section>
+
+<section id="GDBSCenarios">
+<div class="page-header">
+<h3>GDB Scenarios</h3>
+<p>
+<h4>Beforehand:</h4>
+<p>
+    Don't forget to compile your code with the <i>-g</i> flag such that 
+GDB will be able to debug it correctly.
+</p>
+
+<h4>Basic Usage: a program with no arguments</h4>
+<h4>A program with input arguments</h4>
+
+<h4> Stepping through code in TUI Mode </h4>
+<ul>
+    <li> <a href='https://www.sparkfun.com/products/9825'>an AVR programmer</a>  (another Arduino board works as well) </li>
+    <li> An Atmega328p chip </li>
+    <li> A breadboard </li>
+    <li> solid gauge wire </li> 
+</ul>
+<h4>Software</h4>
+<ul>
+    <li> <a href='http://www.nongnu.org/avrdude/'>AVRDUDE</a> to rewrite the fuse bits</li>
+    <li> Ubuntu OS (Mac OSX probably works too if you open a terminal) </li>
+    <li> <a href="../../../downloadables/10-usbtinyisp.rules">UDEV Rules</a> for the AVR programmer </li>
+</ul>
+</p>
+</section>
+
+<section id="TheProcedure">
+<div class="page-header">
+<h3> The Procedure</h3>
+</div>
+<p>
+<ol>
+    <li> Connect the AVR Programmer to the breadboarded Atmega328. <br>
+    Note: if you pulled this atmega328p chip from an existing Arduino board, you will 
+    also need to connect a 16 [MHz] external oscillator to the XTAL pins as well as  
+    two 22 [pF] capacitors each connected from an XTAL pin to GND.</li> 
+    <li> run the following three commands through a terminal one at a time, or 
+    put them together into a script and run the script.
+<pre>
+        avrdude -c usbtiny -p atmega328p -U lfuse:w:0xe2:m
+        avrdude -c usbtiny -p atmega328p -U hfuse:w:0xd9:m
+        avrdude -c usbtiny -p atmega328p  -U efuse:w:0xff:m
+</pre></li>
+    <li> Programming via the Arduino should now be possible! <br>
+    In <b> Tools </b> --> <b>Board</b>, choose <i>Arduino Pro or Pro Mini (3.3 V, 8 MHz) w/Atmega328</i> <br>
+    In <b> Tools </b> --> <b>Programmer</b>, choose the corresponding AVR Programmer <br>
+    To upload, choose <b>File</b> --> <b>Upload Using Programmer</b>    
+
+
+<ol>
+</p>
+</section>
+
+
     <div class="container">
     <!-- Le javascript
     ================================================== -->
