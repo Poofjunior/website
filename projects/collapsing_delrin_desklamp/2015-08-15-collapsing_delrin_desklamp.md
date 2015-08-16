@@ -63,6 +63,11 @@ Delrin can accept press fits and slip fits very predictably, which means you can
 This press-fitting detail is a godsend, since absolutely nothing sticks to Delrin via glue.
 Long-story-short, Delrin is so chemically inert, smooth, and flexible that it simply breaks off of glue and epoxies, mostly because **(a)** the glues have nowhere to "seep in," and **(b)** Delrin is far less brittle than the brittle epoxies that it can be simply peeled off.
 No gluing Delrin. Period. End-of-story. (Melting it together, however, is a different story.) Delrin warps under its own weight over time, so store it flat.
+
+## Drawbacks of Lasing parts
+* the dreaded taper
+* pocket and edge dimensions aren't as good/repeatable as relative dimensions
+* internal stresses in the cut material causes warping
 -->
 
 As much as I enjoy handicraft, when it comes to "making things," I'll kick myself into putting the most creative effort into the novelty of the design, the "easy of repeatability" across duplicates, and the type of interaction that the design has within its intended space.
@@ -112,9 +117,8 @@ The center two joints of the lamp *would form* a *four-bar linkage* without addi
 Four-bar linkages are pretty common when people design cranks and rockers where some of the joints will rotate freely.
 I wanted to the arm joints to remain fixed, so I put extra material into the center piece to act as a "hard-stop" such that the four-bar linkage would remain rigid once the free bar was slotted into place.
 
-
 <center>
-<img src="{{ site.project_images_dir }}/{{ page.project_dir_name }}/pics/triangle_length_diagram.png"
+<img src="/projects/collapsing_delrin_desklamp/pics/triangle_length_diagram.png"
 width="640"
 vspace="15px">
 </center>
