@@ -1,0 +1,18 @@
+# Note: jekyll must be rebuilt to apply changes from this file.
+
+# content will be regenerated on-the-fly if changes are made.
+auto: true
+
+name: "Double Jump Electric"
+author: "Joshua Vasquez"
+description: ""
+copyright: "&copy; Joshua Vasquez 2015"
+
+#url: "http://doublejumpelectric.com"
+url: "http://localhost:4000"
+project_images_dir: "/img/projects"
+
+paginate: 10
+
+markdown: rdiscount
+permalink: pretty

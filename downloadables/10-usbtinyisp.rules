@@ -1,4 +1,0 @@
-SUBSYSTEM=="usb", SYSFS{idVendor}=="1781", SYSFS{idProduct}=="0c9f", GROUP="adm", MODE="0666"
-SUBSYSTEM=="usb", ATTR{idVendor}=="1781″, ATTR{idProduct}=="0c9f", GROUP="adm", MODE="0666″
-SUBSYSTEM=="usb", ATTR{idVendor}=="1781", ATTR{idProduct}=="0c9f", GROUP="plugdev", MODE="0666"
-SUBSYSTEM=="usb", ATTR{product}=="usbtiny", ATTR{idProduct}=="0c9f", ATTRS{idVendor}=="1781", MODE="0660", GROUP="dialout"
