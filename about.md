@@ -15,6 +15,8 @@ Engineering doesn't seem to come without it's "growing pains," and while I just 
 
 Lastly, keep me posted if there's anything I can clarify--or if these notes lead you into building something awesome!
 
+**jvasquez [at] g [dot] hmc [dot] edu**
+
 # about this website
 Gone are the days when documenting projects was a hard-coded html hassle.
 With a big hand from the [Jekyll](Jekyll](http://jekyllrb.com/) project, documenting projects has been streamlined into writing simple markdown files and dropping images into a directory.
