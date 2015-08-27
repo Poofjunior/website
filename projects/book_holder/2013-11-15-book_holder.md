@@ -3,7 +3,7 @@ layout: project_entry
 year: 2013
 title: Machined Book Holders
 top_image_link: http://farm4.staticflickr.com/3688/11476427756_dc00845716.jpg
-tagline: parametric wire bending for a mini production run
+tagline: parametric wire bending for crankin' out partz
 ---
 #{{ page.title }}
 

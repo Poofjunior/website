@@ -11,7 +11,7 @@ tagline: Homemade Illumination Equipment
 ##{{ page.tagline }}
 
 My undergrad days were spoiled with both a wonderful machine shop and a welcoming culture of pals ready to pop the shop doors open for a fun side project.
-These days, I'm far away from a machine shop, so I took my lack of metal-working tools as a chance to build up my "vocabulary" of techniques on the other nearby machines.
+These days, I'm far away from a machine shop, so I took my lack of metal-working tools as a chance to build up a "vocabulary" of techniques with the other nearby machines.
 
 <center>
 <img src={{ page.top_image_link }}"
@@ -90,8 +90,17 @@ With a 1/16th[in] sheet of 3030 aluminum (the bendy grade), I bent together a qu
 ***
 
 ## Field Testing
-## 
 All-in-all, the lamp gets the job done, but there are a couple of drawbacks.
-First, I wasn't expecting torsional stiffness to be an issue, but since the lamp is essentially one huge beam rigidly fixed.
+
+First, I wasn't expecting torsional stiffness to be an issue, but since the lamp is essentially one huge beam rigidly fixed to a solid base, it's going to flex.
+Just *how much* flexing would be a good project for a Solidworks simulation, but it may also be a characteristic I could overcome with heuristics (by which I mean... [soap bubbles](https://simplesupports.wordpress.com/2013/04/29/the-soap-film-method-of-stress-analysis/)?) or some approximate hand-calcs, rather than a fancy-pants software package.
+
+All that said, the lamp sways when you give it a finger-flick.
+It sways... and sways--and the beam of light sways with it.
+(Update: I actually directly address this issue in [V2](http://www.doublejumpelectric.com/projects/collapsing_delrin_desklamp/2015-08-15-collapsing_delrin_desklamp/).)
+
+The second issue is that the knurled screws in the Delrin joints need a serious amount of hand torque to crank them down such that the joints hold their position. As of now, I've discovered that the screws aren't applying the tightening force directly on the rubber washers; hence the lamp joints don't resist sliding as easily as they could.
+
+Despite these drawbacks, though, it definitely serves up a steady beam that makes it sufficiently worthy of "desklamp-hood!"
 
 ***
