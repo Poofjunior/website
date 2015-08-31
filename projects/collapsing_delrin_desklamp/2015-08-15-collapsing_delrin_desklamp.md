@@ -10,8 +10,7 @@ tagline: Homemade Illumination Equipment--2015 Edition!
 
 ## {{ tagline }}
 
-I had the honor of meeting James Olander at this year's Maker Faire. This piece takes many leaps from V1 of his first laptop stand, dubbed **The Roost**, and I'm both grateful and in debt that he let me keep a copy of the old V1 model so I could poke around with it and learn all that I could from some of his fantastic techniques.
-
+I had the honor of meeting James Olander at this year's Maker Faire. This piece takes many leaps from V1 of his first laptop stand, dubbed **The Roost**. 
 
 <center>
 <img src={{ page.top_image_link }}
@@ -21,10 +20,11 @@ alt="IMG_2752">
 
 ***
 ## Another Lamp??
-Ok, I fully admit that I have a staggering affection for desklamps.
-From a rapid-prototyping perspective, they're a broad-enough concept that they can be successfully made from a variety of materials.
-In that sense, it's perfectly acceptable for them to come in all shapes and sizes, enabling me to practice different types of fabrication techniques.
-Desklamps are also **just practical enough** that I can feel justified making them over and over agin (and possibly handing out the previous models to my pals.)
+Ok, I completely admit that I have a staggering affection for desklamps.
+Luckily, from a functional standpoint, they're undergoing some pretty light loads, so the choice of materials doesn't play a huge role in making a desklamp that doesn't collapse under its own weight!
+In that sense, it's perfectly OK for lamps to come in all shapes and sizes, so they're a great chance to practice different types of fab techniques.
+Desklamps are also **just practical enough** that I can feel justified making them over and over agin--and possibly handing out the previous models to my parents/pals.
+("Really, Joshua? The one I had on my desk right now was fine already....")
 
 Last year's desklamp was a challenge in parametrically "making things" with just a laser cutter and without the resources of a fully-blown machine shop.
 Between that desklamp and GameCube-bot V2, I'd call it a success, though there were some growing pains.
