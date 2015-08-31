@@ -12,7 +12,7 @@ title: about me
 I graduated in 2014 with a B.S in Engineering from [Harvey Mudd College](https://www.hmc.edu/) and currently serve the forces of [Mayfield Robotics](http://www.mayfieldrobotics.com/) by day and [Hackaday](http://hackaday.com/author/doublejumpelectric/) on some nights.
 
 
-For me, engineering doesn't seem to come without it's "growing pains." Whether it's the fact that some concepts don't easily lend themselves to analogies from real life, or whether they haven't received the treatment of a well-tacked explanation, some things just don't make sense the first time you read/try/combust them.
+For me, engineering doesn't seem to come without it's "growing pains." Whether it's the fact that some concepts don't easily lend themselves to analogies from real life, or whether they haven't received the treatment of a well-tackled explanation, some things just don't make sense the first time you read/try/combust them.
 
 I started these pages with two driving thoughts:
 
@@ -28,6 +28,9 @@ When it comes to the content that lives here, I'd be honored to take your feedba
 Lastly, feel free to drop me an email if these notes lead you into building something awesome!
 
 **jvasquez [at] g [dot] hmc [dot] edu**
+
+[resum&eacute;](../downloads/jvasquez_resume_2015.pdf)
+
 
 # about this website
 Gone are the days when documenting projects was a hard-coded html hassle.
