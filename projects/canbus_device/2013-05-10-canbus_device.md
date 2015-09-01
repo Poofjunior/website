@@ -27,8 +27,8 @@ The International Computer Engineering Experience (ICEX) Program is a multi-disc
 vspace="15px">
 </center>
 
-The country of Malta itself lies just off the coast of Italy.
-In ancient times, it remained a primary target for invaders, as it's location made it an excellent stepping stone to the neighboring mainland.
+The country of Malta lies just off the coast of Italy.
+In ancient times, it remained a primary target for invaders, as its location made it an excellent stepping stone to the neighboring mainland.
 Consequently, a number of invaders have briefly inhabited the island over the past two-thousand years.
 ***
 <center>
@@ -39,14 +39,12 @@ Hspace=10 Vspace="15px">
 </center>
 
 In its most recent years, the ICEX research team has traveled to Malta to reconstruct submerged ancient cisterns, many of which have not been seen for over a thousand years.
-Archaeologists benefit from a project of this manner as a 3D reconstruction can tell a well-versed archaelogist several features about its users, such as their identity and local time period of inhabitance.
+Archaeologists benefit from a mapping project like ours since a 3D reconstruction can tell a well-versed archaelogist several features about its users, such as their identity and local time period of inhabitance.
 
-This past year, three fellow classmates, Professor Clark, and I traveled to
-Malta to collect data from three cisterns over the course of ten days. 
-Overlapping stationary scans were collected within each cistern until we
-had ensured full coverage of the cistern using the onboard camera.  
+This past year, three fellow classmates, Professor Clark, and I traveled to Malta to collect data from three cisterns over the course of ten days.
+For each cistern, we recorded overlapping stationary scans until we could ensure full coverage (which we confirmed with the onboard camera).
 
-During the summer, we published [Towards Three-Dimensional Mapping without Odometry](http://www.hmc.edu/lair/publications/2013/dobke_UUST_2013.pdf), a paper describing the Lattice Map algorithm.
+That summer, we published [Towards Three-Dimensional Mapping without Odometry](http://www.hmc.edu/lair/publications/2013/dobke_UUST_2013.pdf), a paper describing the Lattice Map algorithm.
 The algorithm itself performs a least-squares fitting on sequential scans based on a probabilistic scan-matching approach, ultimately generating a three-dimensional map from the raw data. 
 ***
 <center>
@@ -71,19 +69,20 @@ At the time of paper publication, two Tritech Sonars were mounted perpendicular 
 other at the front of the robot.
 In this sense, both horizontal and vertical scans could be collected at a single stationary scan point.
 ***
-### The Hardware Development Goal for the 2014 Deployment</h4>
+### The Hardware Development Goal for the 2014 Deployment
 Currently two sonars are used to collect both horizontal and vertical scans
 at a single scan point.  For this reason, scans collected are only sparse
 representations of the true features of the cistern, and interpolation is 
 required to generate closed three-dimensional maps.  To resolve this issue,
-I have prototyped a rotating sonar mount. This project  consists of 
-three main components: mechanical design, featuring waterproof hardware; 
-electronics hardware design, featuring a fabricated circuit board, 
-and a modified software driver to control the additional hardware once 
-mounted on the robot.
+I've developed a proof-of-concept for a rotating sonar mount.
+This project consists of three main puzzle pieces: mechanical design, featuring waterproof hardware and moving parts; electronics, complete with a fabricated circuit board, and software, that is, a modified Python driver to control the extra hardware once mounted on the robot.
 ***
 
 ## Electronics Hardware
+<center>
+<img src="/projects/canbus_device/pics/pcb_complete.png"
+vspace="15px">
+</center>
 ### Parsing the Robot Communication Protocol
 The signal communication between ROV and user control box is handled by a 
 CAN Bus interface, strung through a waterproof tether. This tether also carries 
@@ -99,7 +98,6 @@ implement a tight CAN Bus closed-feedback loop between the ROV and the control b
 <center>
 <img src="/projects/canbus_device/pics/blockDiagram.svg"  align="middle" Hspace=10 Vspace=15>
 </center>
-***
 
 ### Probing for an Interface to the Sonar Mount
 In a nutshell, the CAN Bus interface can string numerous devices along the same bus, and the master communicates with each of these devices individually through an addressing
@@ -147,36 +145,49 @@ housing. In my last week of research before a long break, I opted to etch the co
 <img src="/projects/canbus_device/pics/pcbPrints.jpg" width="400"  Hspace=10 Vspace=15>
 <img src="/projects/canbus_device/pics/vias.jpg" width="400" Hspace=10 Vspace=15>
 </center>
+***
+
 ## Mechanical Design
+The physical parts of this project are basically a servo-in-a-box.
+While speaking the obtuse serial protocol of the Dynamixel servo may have been a head-scrather for the firmware half of my brain, it wasn't going to get far underwater without a protective housing.
+
+<center>
+<img src="/projects/canbus_device/pics/exploded_view.png" width="400"  Hspace=10 Vspace=15>
+<img src="/projects/canbus_device/pics/collapsed_view.png" width="400" Hspace=10 Vspace=15>
+</center>
+
 ### O-Ring Sealing
-Two openings pose a threat for leaks on the outside of the waterproof
-housing: the shaft opening, where the sonar rotates, and the case opening,
-from which the electronics and servo are inserted. To ensure an underwater
-seal at a depth of 50 ft, I chose two types of o-ring seals: a ring seal 
-for rotating components, and a typical o-ring seal for the lid.
+Two openings pose a threat for leaks:
+the shaft opening, where the sonar rotates, and the case opening,
+where the electronics and servo are inserted.
+To ensure an underwater seal at a depth of 50 ft, I chose two types of o-ring seals: a ring seal for rotating components, and a typical o-ring seal for the lid.
 The main lid of the box (shown below) is fixed with a typical O-ring seal, where groove depths
-were calculated with the 
-<a href="http://www.parker.com/literature/ORD%205700%20Parker_O-Ring_Handbook.pdf">Parker O-ring Manual</a>.
+were calculated with the [Parker O-Ring Manual](http://www.parker.com/literature/ORD%205700%20Parker_O-Ring_Handbook.pdf).
+
 ### Designing for Field Wear
 <center>
 <img src="/projects/canbus_device/pics/finalBox.jpg" width="400"  Hspace=10 Vspace=15>
 <img src="/projects/canbus_device/pics/finalBoxDetail.jpg" width="400" Hspace=10 Vspace=15>
 </center>
-Since the box would be repeatedly opened for maintenance and inspection
-of the circuitry, this particular lid sealing is ideal, as it does not 
-introduce severe mechanical wear on the box each time it is opened.  
-Additionally, no screws are threaded into the plastic housing; rather, 
-two bolts apply compressive force from opposing ends of the box.
+Since I'd probably end up repeatedly opening the box to check for leaks, I designed it to accomodate repeated re-entry without causing wear.
+The lid, is clamped shut by two long bolts that extend through to the other end of the housing where they can be screwed down.
+With this design, I didn't need to screw directly into the ABS material or use threaded inserts to keep the lid from blowing off underwater.
 ***
 
 ### Software Driver Modification
 The ROV is ultimately controlled by a software driver implemented in Python.
-This driver constructs the data packets sent to the ROV to control 
-speed and direction of both motors.  Within this driver, I added additional 
-software control to control the new sonar Mount 
+This driver constructs the data packets sent to the ROV to control speed and direction of both motors.
+Within this driver, I added additional software control to control the new sonar Mount 
 <center>
 <img src="/projects/canbus_device/pics/blockDiagramFull.svg"  align="middle" Hspace=10 Vspace=15>
 </center>
 
 ##Testing
-This device is currently in its final stages of testing.  A full underwater test will be conducted before December 15th.
+The device went through its first successful underwater test on December 15th!
+From the Python script running on the computer, I was able to both rotate the sonar and execute scans at several different angles.
+Below are the first sets of data hand-stitched (for now) with Blender.
+<center>
+<img src="/projects/canbus_device/pics/four_planes_messy.jpg"
+vspace="15px">
+</center>
+It's messy, but if you look closelly, you can make out the edges of the rectangular pool (red) that the robot was submerged in when it made these scans. Mission accomplished... for now.
