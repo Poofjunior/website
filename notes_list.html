@@ -1,0 +1,49 @@
+---
+layout: bootstrap
+categories: [embedded, digital design, mech-E, data-logging]
+---
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<div class="container">
+<div id="content">
+
+<ul id="tabs" class="nav nav-tabs nav-justified" data-tabs="tabs">
+{% for category in page.categories %}
+  {% if forloop.index == 1 %}
+<li role="presentation" class="active"><a href="#{{ forloop.index }}" data-toggle="tab">{{ category }}</a></li>
+  {% else %}
+<li role="presentation"><a href="#{{ forloop.index }}" data-toggle="tab">{{ category }}</a></li>
+  {% endif %}
+{% endfor %}
+</ul>
+
+{% comment %}
+  For each category, iterate through all the website's pages and
+  populate the correct category with the relevant content
+{% endcomment %}
+
+<div class="tab-content">
+{% for category in page.categories %}
+{% assign outer_index = forloop.index0 %}
+  {% if forloop.index == 1 %}
+    <div class="tab-pane active" id="{{ forloop.index }}">
+  {% else %}
+    <div class="tab-pane" id="{{ forloop.index }}">
+  {% endif %}
+      <div class="jumbotron">
+        {% for p in site.pages %}
+          {% if p.layout == "notes_entry" %}
+            {% if p.note_category == category %}
+              <h3> <a href="/notes/{{ category }}/{{ p.file_name }}/index.html">{{ p.title }}</a> <h3><br>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+
+      </div>
+    </div>
+{% endfor %}
+</div> <!-- tab-content -->
+
+</div> <!-- content -->
+</div>
