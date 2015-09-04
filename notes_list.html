@@ -1,6 +1,6 @@
 ---
 layout: bootstrap
-categories: [embedded, digital design, mech-E, data-logging]
+categories: [embedded, digital design, mech-E, data-logging, garage-lab]
 ---
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -35,7 +35,7 @@ categories: [embedded, digital design, mech-E, data-logging]
         {% for p in site.pages %}
           {% if p.layout == "notes_entry" %}
             {% if p.note_category == category %}
-              <h3> <a href="/notes/{{ category }}/{{ p.file_name }}/index.html">{{ p.title }}</a> <h3><br>
+              <h3> <a href="/notes/{{ category }}/{{ p.file_name }}/{{ p.file_name }}/index.html">{{ p.title }}</a> <h3><br>
             {% endif %}
           {% endif %}
         {% endfor %}
