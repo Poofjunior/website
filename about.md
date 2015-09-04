@@ -37,9 +37,9 @@ Gone are the days when documenting projects was a hard-coded html hassle.
 With a big hand from the [Jekyll](Jekyll](http://jekyllrb.com/) project, documenting projects has been streamlined into writing simple markdown files and dropping images into a directory.
 Feel free to ping me if you have any questions about the mechanics of how this site was assembled.
 
-## Where are all the notes?
+## Where are the rest of the notes?
 Updates to this website are currently a work-in-progress, and some of the sections have been held back as they get a minor tweak in appearance.
-Keep checking back in the next few weeks for the return of the **Notes** section.
+Keep checking back in the next few weeks for more content in the **Notes** section.
 
 ## Deployment Special Thanks
 An extra special thanks to Ben Chasnov for snapping the frontpage photo

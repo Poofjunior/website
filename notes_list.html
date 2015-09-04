@@ -32,12 +32,28 @@ categories: [embedded, digital design, mech-E, data-logging, garage-lab]
     <div class="tab-pane" id="{{ forloop.index }}">
   {% endif %}
       <div class="jumbotron">
+        {% assign contains_hackaday_content = false %}
         {% for p in site.pages %}
+
+          {% if p.file_name == "hackaday" %}
+            {% if p.note_category == category %}
+              {% assign contains_hackaday_content = true %}
+              {% assign hackaday_content = p %}
+            {% endif %}
+          {% endif %}
+
           {% if p.layout == "notes_entry" %}
             {% if p.note_category == category %}
               <h3> <a href="/notes/{{ category }}/{{ p.file_name }}/{{ p.file_name }}/index.html">{{ p.title }}</a> <h3><br>
             {% endif %}
           {% endif %}
+
+          {% if site.pages.size == forloop.index %}
+            {% if contains_hackaday_content == true %}
+                {{hackaday_content.content}}
+            {% endif %}
+          {% endif %}
+
         {% endfor %}
 
       </div>
