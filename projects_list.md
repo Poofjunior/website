@@ -21,7 +21,7 @@ years: [2015, 2014, 2013, 2012, 2011]
   <year>-<month>-<date>-<project_name>.md
   such that they appear in site.pages in alphabetical order.
 
-  Running time on this list generator is N^2, but no a big deal.
+  Running time on this list generator is O(N^2), but no big deal, right??
 {% endcomment %}
 
 {% for year in page.years %}
