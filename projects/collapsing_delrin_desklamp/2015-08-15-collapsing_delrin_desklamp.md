@@ -8,18 +8,16 @@ tagline: Homemade Illumination Equipment--2015 Edition!
 
 # {{ page.title }}
 
-## {{ tagline }}
+## {{ page.tagline }}
 
 I had the honor of meeting James Olander at this year's Maker Faire. This piece takes many leaps from V1 of his first laptop stand, dubbed **The Roost**. 
 
-<center>
-<img src={{ page.top_image_link }}
-alt="IMG_2752">
-</a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
-</center>
+![]({{page.top_image_link}}){: .center-image}
 
 ***
+
 ## Another Lamp??
+
 Ok, I completely admit that I have a staggering affection for desklamps.
 Luckily, from a functional standpoint, they're undergoing some pretty light loads, so the choice of materials doesn't play a huge role in making a desklamp that doesn't collapse under its own weight!
 In that sense, it's perfectly OK for lamps to come in all shapes and sizes, so they're a great chance to practice different types of fab techniques.
@@ -37,7 +35,9 @@ Here's a quick recap of what I learned from using a 60[W] CO2 laser cutter last 
 
 <!-- Frank and confident, but honest and convincing in a "trust-me" sort of way -->
 <!--
+
 ### Materials
+
 * Acrylic is clear, flat, and horribly brittle.
 While it cuts better than almost any other material, it cannot be put under serious stresses of any kind without risking shattered parts.
 By "cuts better," it turns out that the CO2 laser cutter's heat from the beam, quite literally, *undoes* the acrylic-forming reaction, which is why laser-cut acrylic edges are so darn smooth.
@@ -65,6 +65,7 @@ Long-story-short, Delrin is so chemically inert, smooth, and flexible that it si
 No gluing Delrin. Period. End-of-story. (Melting it together, however, is a different story.) Delrin warps under its own weight over time, so store it flat.
 
 ## Drawbacks of Lasing parts
+
 * the dreaded taper
 * pocket and edge dimensions aren't as good/repeatable as relative dimensions
 * internal stresses in the cut material causes warping
@@ -76,52 +77,28 @@ In other words, my hands are pretty-much-crap at finesse and precise fingerwork,
 ***
 
 ## The Design
+
 Since I constantly seem to be moving, I wanted something collapseable enough to stuff somewhere into the back of my car for transit.
 
 
-<center>
-<img src="https://farm1.staticflickr.com/418/20257713610_9183dee97f_c.jpg"
-width="800"
-height="450"
-vspace="15px"
-alt="20150809_024724">
-</a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
-</center>
+![](https://farm1.staticflickr.com/418/20257713610_9183dee97f_c.jpg){: .center-image}
 
 This piece was a strange exercise in finding "stable" configurations of the joints in their final form.
 
-
-<center>
-<img src="https://farm1.staticflickr.com/478/20258990159_44677aecb0.jpg"
-width="640"
-vspace="15px"
-alt="IMG_2766">
-</a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
-</center>
-
+![](https://farm1.staticflickr.com/478/20258990159_44677aecb0.jpg){: .center-image}
 
 For the upper section I combined a prismatic and sliding joint so that I could rotate out the LED and then slide it out to lock.
 The square tubing also resists torsional bending well enough such that the lamp doesn't continuously sway back and forth when it gets jostled by studious foreheads and elbows.
 
 
-<center>
-<img src="https://farm1.staticflickr.com/526/19824739413_463191ecee.jpg"
-width="640"
-vspace="15px"
-alt="IMG_2761">
-</a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
-</center>
+![](https://farm1.staticflickr.com/526/19824739413_463191ecee.jpg){: .center-image}
 
 
 The center two joints of the lamp *would form* a *four-bar linkage* without additional modifications.
 Four-bar linkages are pretty common when people design cranks and rockers where some of the joints will rotate freely.
 I wanted to the arm joints to remain fixed, so I put extra material into the center piece to act as a "hard-stop" such that the four-bar linkage would remain rigid once the free bar was slotted into place.
 
-<center>
-<img src="/projects/collapsing_delrin_desklamp/pics/triangle_length_diagram.png"
-width="640"
-vspace="15px">
-</center>
+![](/projects/collapsing_delrin_desklamp/pics/triangle_length_diagram.png){: .center-image}
 
 
 For the sliding joint, I did some quick back-of-the-envelope checks with a Solidworks reference sketch to make sure that the sliding clip would freely slide down (to deploy the legs) and up (to retract them). The sliding clip and legs each form a truss-like triangle.
@@ -130,14 +107,7 @@ To get the sliding clip to fully retract from the open configuration, the sum of
 (See image above.)
 
 
-<center>
-<img src="https://farm1.staticflickr.com/456/20445809035_1296b6efeb.jpg"
-width="640"
-vspace="15px"
-alt="20150808_225207">
-</a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
-</center>
-
+![](https://farm1.staticflickr.com/456/20445809035_1296b6efeb.jpg"){: .center-image}
 
 The sliding clip that actually locks the legs in place hails from the design of [James Olander's] Roost.
 In a nutshell, the pull-tab that releases the legs is springloaded, where the spring is directly embedded into the Delrin.
@@ -148,5 +118,7 @@ All-in-all, this part needs a little work as the tab doesn't completely line up 
 
 
 ## Field Testing
+
 Out on the desk, the lamp fares quite well! The wires tuck neatly into the square tubing, but I had to live with having them sticking out at the bends. (I borrowed the circuit from [last year's lamp]() to get this one up-and-running).
 
+***

@@ -14,6 +14,8 @@ project_images_dir: "/img/projects"
 
 paginate: 10
 
-markdown: rdiscount
-#markdown: kramdown
+#markdown: rdiscount
+markdown: kramdown
+kramdown:
+    parse_block_html: true
 permalink: pretty
