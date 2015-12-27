@@ -31,13 +31,14 @@ In the quest for a website that could be generated from just a small number of f
 The key features weren't too demanding: a front page; a running list of projects, notes, and rants; and an easy way to actually type it all up.
 
 To generate the __project list__, __notes list__, and __blog post__ pages, I wrote a couple of control loops that filter for posts based on their category with Jekyll's Liquid templates. Liquid doesn't have a super-comprehensive [set of operations](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers), but it's enough to get the job done.
-(Here's the [snippet](https://raw.githubusercontent.com/Poofjunior/website/master/projects_list.md) that generates the links in the __project list__ page.)
+(Here's my [snippet](https://raw.githubusercontent.com/Poofjunior/website/master/projects_list.md) that generates the links in the __project list__ page.)
 
 
 ![](/projects/website_mark_2/pics/auto_list_generation.png){:vspace="15px", text-align: center}
 
-56 lines of code to automagically append new projects to the list when I create a new project entry? I'll take that.
-To guarantee that posts are appended in alphabetical order, I just need to adhere to a naming scheme of `<year>-<month>-<day>-<post-title>.md`, but I can organize them with whatever file structure I prefer, since Jekyll recursively searches the top-level directory to find all posts.
+A mere 56 lines of code to automagically add new projects to the list when I make a project post?
+I'll take that.
+To guarantee that posts are appended in alphabetical order, I just need to adhere to a post naming scheme of `<year>-<month>-<day>-<post-title>.md`, but I can organize posts into whatever file structure I want since Jekyll recursively searches the top-level directory to find all posts.
 
 ***
 
@@ -60,6 +61,18 @@ The __project\_entry__ tag flags this entry as a project to be appended to the p
 From there, the rest of the file looks like conventional markdown.
 
 Each time I save new file changes, Jekyll updates any changed files, regenerates the relevant list pages if needed, and outputs html files that I can then upload to a server.
+
+***
+
+{% comment %}
+## Nuts and Bolts 
+
+### Markdown Options
+
+Jekyll has a couple of available [Markdown Processors](http://jekyllrb.com/docs/configuration/#markdown-options) for chewing up my markdown files and turning them into html. I opted for kramdown since it 
+
+***
+{% endcomment %}
 
 At last! These days, starting a new writeup is as easy as popping open a text editor, pasting the preamble, and starting to punch out words.
 

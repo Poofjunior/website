@@ -35,14 +35,23 @@ Lastly, feel free to drop me an email if these notes lead you into building some
 
 
 # about this website
+
 Gone are the days when documenting projects was a hard-coded html hassle.
-With a big hand from the [Jekyll](Jekyll](http://jekyllrb.com/) project, documenting projects has been streamlined into writing simple markdown files and dropping images into a directory.
+With a big hand from the [Jekyll](http://jekyllrb.com/) project, documenting projects has been streamlined into writing simple markdown files and dropping images into a directory.
 Feel free to ping me if you have any questions about the mechanics of how this site was assembled, or just check out the [source](https://github.com/Poofjunior/website).
 I also posted a slightly-more-detailed [writeup](http://www.doublejumpelectric.com/projects/website_mark_2/2015-12-25-website_mark_2/).
 
 ## Where are the rest of the notes?
+
 Updates to this website are currently a work-in-progress, and some of the sections have been held back as they get a minor tweak in appearance.
 Keep checking back in the next few weeks for more content in the **Notes** section.
 
 ## Deployment Special Thanks
+
 An extra special thanks to Ben Chasnov for snapping the frontpage photo
+
+## About the content here
+
+The images and written works of this website are authored by Joshua Vasquez, unless otherwise noted and linked/cited as such.
+
+The file structure and [software used to generate this website](https://github.com/Poofjunior/website) leverage several open source tools and are themselves also entirely open source. Feel free to use them as a template for your website. Just change the content.
