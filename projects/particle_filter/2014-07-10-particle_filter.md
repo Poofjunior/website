@@ -9,13 +9,12 @@ tagline: a C++ Implementation of a localization algorithm with graphics rendered
 
 ##{{ page.tagline }}
 
-<center>
-<img src={{ page.top_image_link }} ></A>
-</center>
+![]({{ page.top_image_link }}){: .center-image}
 
 ***
 
 ##Introduction
+
 In robotics, answering the question "Where am I?" in a known environment is
 tricky. Fortunately, a number of techniques have been developed to answer this
 question, and the particle filter is one of these techniques.
@@ -71,5 +70,6 @@ tuning and sufficient computational resources, the particle filter can
 converge fairly often.
 
 ##References
+
 * [The Probabilistic Robotics Text](http://www.probabilistic-robotics.org/)
 * [Prof Clark's Lecture Notes](http://www.hmc.edu/lair/E190Q/E190Q-Lecture10-PFLocalization.pdf) from HMC's Autonomous Robot Navigation Class

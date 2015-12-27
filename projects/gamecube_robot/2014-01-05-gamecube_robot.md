@@ -6,17 +6,19 @@ top_image_link: "/projects/gamecube_robot/pics/gamecubeBot.png"
 tagline: a differential drive train packed into a classic console
 ---
 # {{ page.title }}
+
 ##{{ page.tagline }}
-<center>
-<IMG SRC='/projects/gamecube_robot/pics/GameCubeSideBySide.jpg'>
-</center>
+
+![](/projects/gamecube_robot/pics/GameCubeSideBySide.jpg){: .center-image}
 
 ### Update:
+
 Building instructions for version 2 can be found online at
 [instructables](http://www.instructables.com/id/RC-Nintendo-GameCube-Robot/)
 and can be built without specialized equipment (i.e: a machine shop).
 
 ##Introduction
+
 With yet another generation of game consoles on the horzion, what on earth will
 we do with all of our previous consoles?  Now backlogged by two generations,
 the good ol' Nintendo Gamecube sits patiently in many closets. I decided that
@@ -29,6 +31,7 @@ version 2, it's just begging to be loaded down with sensors for multi-robot
 research problems.
 
 ##The Design
+
 <center>
 <a href="http://www.flickr.com/photos/77947059@N05/12022025236/" title="driveTrain4 by Poofjunior, on Flickr"><img src="http://farm8.staticflickr.com/7371/12022025236_feb0a83655_m.jpg" width="225" height="240" alt="driveTrain4"></a>
 <a href="http://www.flickr.com/photos/77947059@N05/12021298405/" title="TransmissionsDone by Poofjunior, on Flickr"><img src="http://farm3.staticflickr.com/2811/12021298405_a9a8344367_n.jpg" width="428"  alt="TransmissionsDone"></a>
@@ -65,9 +68,7 @@ LEGOs of my past. The main principles are like so:
 Gears mesh at the imaginary circles called their pitch circles, a property
 derived from tooth count and pitch.
 
-<center>
-<IMG SRC='/projects/gamecube_robot/pics/meshingGears.png'>
-</center>
+![](/projects/gamecube_robot/pics/meshingGears.png){:.center-image}
 
 To make the gear stage shape a bit easier to design, I created a Solidworks
 Assembly using the gear files. I resized them to their pitch diameters and
@@ -76,9 +77,7 @@ ensuring that each stage touched the next. (One quick note: I actually made the
 gears a wee-bit bigger than their pitch diameters, adding some backlash, to
 permit the gears to spin more smoothly.)
 
-<center>
-<a href="http://www.flickr.com/photos/77947059@N05/11915172665/" title="gearLocations by Poofjunior, on Flickr"><img src="http://farm4.staticflickr.com/3678/11915172665_2529be3f5b_n.jpg" width="320" height="202" alt="gearLocations"></a>
-</center>
+![](http://farm4.staticflickr.com/3678/11915172665_2529be3f5b_n.jpg){: .center-image}
 
 The pinion gear was a bit tricky to find. The servo replacement gears are
 metric, and finding metric pinion gears with the right inner shaft diameter
