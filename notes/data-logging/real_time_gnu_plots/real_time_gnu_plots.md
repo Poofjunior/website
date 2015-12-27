@@ -6,13 +6,11 @@ title: Real-Time Plotting with GNU Plot
 tagline:
 ---
 # {{ page.title }}
-## {{ page.tagline }}
 
 Data Acquisition Units (DAQs) are expensive, and, in many simple cases,
-overkill for plotting data in real-time to see changes. For simple plotting,
-and Arduino with a serial connection can do the same trick. Of course, for
-many situations, a DAQ really is the best bet, but this plotting trick is
-handy nevertheless.
+overkill for plotting data in real-time to see changes. For simple plotting (i.e less than 30[hz]),
+an Arduino with a serial connection can do the same trick. Of course, for
+many situations, a DAQ really is the best bet, but this plotting trick (made possible by the folks at lysium.de) is handy nevertheless. You'll need their [perl script](http://www.lysium.de/sw/driveGnuPlotStreams.pl) (and a Perl installation) to make this trick work.
 
 To stream data from the Arduino to the terminal, simply output the data via
 serial connection in the following format as chars:
@@ -44,6 +42,7 @@ kill the screen command, and then run the command above.*
 
 
 ### Resources
+
 * [Source Code and Original Documentation](http://www.lysium.de/blog/index.php?/archives/234-Plotting-data-with-gnuplot-in-real-time.html)
 
 

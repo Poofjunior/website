@@ -193,4 +193,4 @@ Below are the first sets of data hand-stitched (for now) with Blender.
 
 ![](/projects/canbus_device/pics/four_planes_messy.jpg){: .center-image}
 
-It's messy, but if you look closelly, you can make out the edges of the rectangular pool (red) that the robot was submerged in when it made these scans. Mission accomplished... for now.
+It's messy, but if you look closely, you can make out the edges of the rectangular pool (red) that the robot was submerged in when it made these scans. Mission accomplished... for now.
