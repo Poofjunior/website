@@ -66,6 +66,51 @@ We'll also need to make agreements on what happens based on these inputs.
 
 I'll spare us the combinational logic for now; let's take a look at the power of answering these two questions with an example.
 
+### Example: a "4-sorter" sorting a 4-element array
+
+By setting the SystemVerilog parameters __DATA_WIDTH__ to be 8 and __SIZE__ to be 4, I can generate a "4-sorter" that can sort lists up to length 4 in linear time.
+Here's a block-diagram of the test setup:
+
+The FPGA logic is wrapped up inside the _sorter_ block, and cells are marked with an _x_ to indicate _empty_.
+I've tossed out the SPI interface for now just to highlight the inputs and outputs of the cells to show how they interact with each other.
+
+![]("/projects/linear_time_parallel_sorter/test_setup.png"){: .center-image}
+
+Let's start by following the list behavior as we input unsorted elements in serially.
+When we try to insert the first element, each cell compares it to the current stored element in that cell and answer the questions:
+* Is new_cell_data < current_cell_data ?
+* Am I empty or occupied?
+
+Meanwhile it receives the answers to these questions from the previous cell:
+* Is the previous cell occupied?
+* Is the previous cell pushing its cell data because __prev_cell_data < prev_curr_cell_data__?
+
+The answers to these questions happen within a single clock cycle.
+(Senders and receivers of this information, as well as what information was sent, are depicted with arrows below.)
+
+![]("/projects/linear_time_parallel_sorter/insert_first_element.png"){: .center-image}
+
+Upon reset, all elements start off as empty.
+To force the first cell to take the first element, I've tied that element's __prev_cell_data_pushed__ input __HIGH__.
+In that sense, with an empty list, the first inserted element will always be claimed by the first empty cell.
+While other cells are empty, they do not take the first element because each of their respective previous cells are also empty.
+
+On the next clock cycle, we're ready to insert another element and sort it.
+Again, each cell asks the same questions and receives the answers to those questions from the previous cell.
+Since all occupied cells don't satisfy the first condition, since their values are smaller, the value goes in the first empty slot, just like the previous one.
+
+![]("/projects/linear_time_parallel_sorter/insert_second_element.png"){: .center-image}
+
+On the next clock cycle, the same scenario happens for a third time:
+
+![]("/projects/linear_time_parallel_sorter/insert_third_element.png"){: .center-image}
+
+On the next clock cycle, we get yet another value, but this time that value forces a "push" on certain elements.
+
+![]("/projects/linear_time_parallel_sorter/insert_third_element.png"){: .center-image}
+
+
+
 Write more here!
 
 
