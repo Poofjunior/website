@@ -2,8 +2,8 @@
 layout: notes_entry
 note_category: maths
 file_name: quaternions
-title: The Practical Boola Boola Guide to Quaternions
-tagline: Rigid Body Transformations Made Easier!
+title: "Quaternions: the Practical Boola-Boola Guide"
+tagline: or, Rigid Body Transformations Made Easier!
 ---
 # {{ page.title }}
 
