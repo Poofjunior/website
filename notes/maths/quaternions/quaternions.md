@@ -13,9 +13,9 @@ tagline: Rigid Body Transformations Made Easier!
 
 ## The Short
 
-Quaternions are awesome!
-They make for an efficient encoding of rotations in 3-space with a few nifty properties that make them far friendlier than the rotation-matrix alternatives.
-Since I couldn't find a practical guide to using quarternions to encode rotations, I decided: “hey–why not make one?”
+Hey, quaternions are awesome!
+They’re an efficient encoding of rotations in 3-space with a few nifty properties that make them far friendlier than their rotation matrix alternatives.
+Since I can’t find a practical guide to using them for storing rotations, I decided: “hey–why not make one?”
 Hence, this is it! By the end of this page, I hope to give you a sense of how they work and how to use them in your future 3D escapades.
 
 ## Getting a Grip on Rotations
