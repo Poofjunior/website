@@ -14,7 +14,7 @@ vspace="15px">
 </center>
 
 Sorting algorithms are an old hat in the comp-sci community.
-Running times on the fastest of these algorithms is usually __O(Nlogn)__ on a
+Running times on the fastest of these algorithms is usually __O(N*log*(N))__ on a
 single core.
 I thought, with an FPGA, why not try a parallel approach in hardare to bring the running time down to __O(N)__?
 
