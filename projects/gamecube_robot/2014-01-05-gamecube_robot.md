@@ -32,10 +32,8 @@ research problems.
 
 ##The Design
 
-<center>
-<a href="http://www.flickr.com/photos/77947059@N05/12022025236/" title="driveTrain4 by Poofjunior, on Flickr"><img src="http://farm8.staticflickr.com/7371/12022025236_feb0a83655_m.jpg" width="225" height="240" alt="driveTrain4"></a>
-<a href="http://www.flickr.com/photos/77947059@N05/12021298405/" title="TransmissionsDone by Poofjunior, on Flickr"><img src="http://farm3.staticflickr.com/2811/12021298405_a9a8344367_n.jpg" width="428"  alt="TransmissionsDone"></a>
-</center>
+{: style="text-align: center"}
+![](http://farm8.staticflickr.com/7371/12022025236_feb0a83655_m.jpg){: width="225px"} ![](http://farm3.staticflickr.com/2811/12021298405_a9a8344367_n.jpg){: width="428px"}
 
 Design a high-end research-worthy robot platform on-the-cheap? Challenge
 accepted. As many of us bot-designers over at
