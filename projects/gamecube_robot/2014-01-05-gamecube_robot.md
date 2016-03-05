@@ -131,9 +131,9 @@ Following the first transmission's completion and lubrication with silicone
 spray, we gave it a spin down in the shops.
 
 ###Drive Train Initial Test
-<center>
-<iframe width="320" height="180" src="//www.youtube.com/embed/p8CYwb18Eh8" frameborder="0" allowfullscreen></iframe>
-</center>
+
+{% youtube p8CYwb18Eh8 %}
+
 (That jiggly spacer was replaced!)
 
 ##Implementation
@@ -142,15 +142,13 @@ them together with a steel plate from an old hard drive. (Ah, having a scrap
 pile is a lovely thing!) Following the crude assembly, we spun some initial
 outdoor tests:
 
-<center>
-<h4> Skeletal Drive Train Outdoor Testing</h4>
-<iframe width="640" height="360" src="//www.youtube.com/embed/AJMVFgwLAJs" frameborder="0" allowfullscreen></iframe>
-</center>
+#### Skeletal Drive Train Outdoor Testing
+{% youtube AJMVFgwLAJs%}
 
-<center>
-<h4> Fully-shelled Gamecube Living Room Test</h4>
-<iframe width="560" height="315" src="//www.youtube.com/embed/rBZQmiqKuV0" frameborder="0" allowfullscreen></iframe>
-</center>
+
+#### Fully-shelled Gamecube Living Room Test
+{% youtube rBZQmiqKuV0 %}
+
 
 ###Signal Mixing for Differential Drive Control
 The differential drive train is driven with two brushless motors, one per side.
