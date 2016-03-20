@@ -8,8 +8,8 @@ author: "Joshua Vasquez"
 description: ""
 copyright: "&copy; Joshua Vasquez 2016"
 
-url: "http://doublejumpelectric.com"
-#url: "http://localhost:4000"
+#url: "http://doublejumpelectric.com"
+url: "http://localhost:4000"
 project_images_dir: "/img/projects"
 
 paginate: 10
