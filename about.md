@@ -31,7 +31,7 @@ Lastly, feel free to drop me an email if these notes lead you into building some
 
 **jvasquez [at] g [dot] hmc [dot] edu**
 
-[resum&eacute;](../downloads/jvasquez_resume_2015.pdf)
+[resum&eacute;](../downloads/jvasquez_resume_nov_2017.pdf)
 
 
 # about this website
