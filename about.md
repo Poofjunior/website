@@ -9,7 +9,7 @@ title: about
 
 # {{ page.title }}
 
-I graduated in 2014 with a B.S in Engineering from [Harvey Mudd College](https://www.hmc.edu/) and currently serve the forces of [Synthego](https://www.synthego.com/) by day and [Hackaday](http://hackaday.com/author/doublejumpelectric/) on some nights.
+I graduated in 2014 with a B.S in Engineering from [Harvey Mudd College](https://www.hmc.edu/). These days, I'm a researcher at [Machine Agency](https://machineagency.github.io/) by day and [Hackaday](http://hackaday.com/author/doublejumpelectric/) writer on some nights.
 
 
 For me, engineering hasn't come without it's "growing pains." Whether it's the fact that some concepts don't easily lend themselves to analogies from real life, or whether they haven't received the treatment of a well-tackled explanation, some things just don't make sense the first time you read/try/combust them.
