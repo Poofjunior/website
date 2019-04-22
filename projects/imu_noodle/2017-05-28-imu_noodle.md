@@ -3,7 +3,7 @@ layout: project_entry
 year: 2017
 title: The IMU Noodle
 top_image_link: "/projects/imu_noodle/pics/imu_noodle_scaled.gif"
-tagline: an old daydream that is very much alive
+tagline: the grandbaby of quaternion math and modern motion capture technology
 ---
 
 # {{ page.title }}
