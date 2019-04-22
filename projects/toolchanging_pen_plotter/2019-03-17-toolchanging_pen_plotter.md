@@ -8,13 +8,13 @@ tagline: A toolchanger proof-of-concept that's eager to be your pen pal.
 
 # {{ page.title }}
 
+
 <!--![](/projects/toolchanging_pen_plotter/pics/toolchanging_pen_plotter_pens.jpg){: .center-image}-->
 <div class="video">
 <figure>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/yCwlqF1J5I8?start=48&rel=0&version=3&autohide=1&showinfo=0&controls=0&mute=1&autoplay=1&loop=1&playlist=yCwlqF1J5I8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </figure>
 </div>
-
 
 <!--
 <video src="https://i.giphy.com/media/4QFqEqtTz0mTh1jaW3/source.mp4" autoplay="" loop="" muted="" playsinline="" onerror="this.onerror=()=>{};this.src='https://i.giphy.com/4QFqEqtTz0mTh1jaW3.mp4';">
@@ -30,10 +30,15 @@ tagline: A toolchanger proof-of-concept that's eager to be your pen pal.
 -->
 
 3D printers have come a long way, but they're only scratching the surface of what's possible with rapid-prototyping.
-For instance: what if our 3D printers could do more than simply print? What if they could doodle with pens, decorate with frosting, or place electrical components on circuit boards?
+What if our 3D printers could do more than simply print? What if they could doodle with pens, decorate with frosting, or place electrical components on circuit boards?
 My *Toolchanging Pen Plotter* proof-of-concept demonstrates the beginnings of an ecosystem where our 3D printers transform into general-purpose motion platforms.
 
-In designing this project, I purposefully prevented myself from using conventional machine-shop tools as much as possible.
+I've been inspired by some of [E3D's early work creating their toolchanger system](https://e3d-online.com/blog/2018/03/21/tool-changer-q/).
+Since the pricetag looks like it'll be out of my range, I thought: why not build my own and release it for others to enjoy too?
+I'm eager to see a world where toolchanging systems become the norm, but getting there will be a matter of getting these machines in to the hands of more people first.
+In my mind, kicking things off with an open-source system is critical to catalyzing the development of other areas of this ecosystem, like software support and tool types.
+
+In designing this project, I purposefully prevented myself from using expensive machine-shop tools as much as possible.
 The result is a system that is *fabricable* by anyone with access to a 3D printer, laser cutter, and some light hand tools.
 
 This project is the first (of many!) during my time in grad school studying Human-Centered Design and Engineering.
@@ -190,7 +195,7 @@ It's a reminder to the designer that they design with the fabricator in mind, th
 
 For more on fabricability, stay tuned for some of the upcoming papers from our research lab!
 
-### Build your Own
+### Go Forth and Build your Own
 Speaking of fabricability, don't let me have all the fun.
 All design files and assembly docs for the tool-changer hardware are open source and [ready-for-download](https://www.thingiverse.com/thing:3365456) with the gantry design coming in behind shortly.
 May you go forth and confidently build your own! (And feel free to write to me with questions.)

@@ -107,6 +107,7 @@ img {
 }
 
 .video iframe, .video object, .video embed {
+    padding: 15px;
     position: absolute;
     top: 0;
     left: 0;
