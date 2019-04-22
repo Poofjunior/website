@@ -3,7 +3,7 @@ layout: project_entry
 year: 2016
 title: Two Stage Tentacle Mechanism
 top_image_link: "/projects/two_stage_tentacle_mechanism/pics/two_stage_tentacle_mechanism_small.jpg"
-tagline: an old daydream that is very much alive
+tagline: the grandbaby of quaternion math and modern motion capture technology
 ---
 
 # {{ page.title }}
