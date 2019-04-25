@@ -9,10 +9,12 @@ title: about
 
 # {{ page.title }}
 
-I graduated in 2014 with a B.S in Engineering from [Harvey Mudd College](https://www.hmc.edu/). These days, I'm a researcher at [Machine Agency](https://machineagency.github.io/) by day and [Hackaday](http://hackaday.com/author/doublejumpelectric/) writer on some nights.
+I graduated from [Harvey Mudd College](https://www.hmc.edu/) back in 2014 with a B.S in Engineering.
+Since then, I've served the forces of [Mayfield](https://www.heykuri.com/blog/important_difficult_announcement/) Robotics and later [Synthego](https://www.synthego.com/) wearing various mechatronics, electrical, and software hats.
+These days, I'm a researcher at [Machine Agency](https://machineagency.github.io/) by day and a [Hackaday](http://hackaday.com/author/doublejumpelectric/) writer on some nights.
 
 
-For me, engineering hasn't come without it's "growing pains." Whether it's the fact that some concepts don't easily lend themselves to analogies from real life, or whether they haven't received the treatment of a well-tackled explanation, some things just don't make sense the first time you read/try/combust them.
+For me, engineering hasn't come without it's growing pains. Whether it's the fact that some concepts don't easily lend themselves to analogies from real life, or whether they haven't received the treatment of a well-tackled explanation, some things just don't make sense the first time you read/try/combust them.
 
 I started these pages with two driving thoughts:
 
@@ -29,7 +31,7 @@ Lastly, feel free to drop me an email if these notes lead you into building some
 
 ## Contact Info
 
-**jvasquez [at] g [dot] hmc [dot] edu**
+**joshua [at] [thiswebsitename] [dot] com**
 
 [resum&eacute;](../downloads/jvasquez_resume_nov_2017.pdf)
 
