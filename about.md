@@ -48,10 +48,6 @@ I also posted a slightly-more-detailed [writeup](http://www.doublejumpelectric.c
 Updates to this website are currently a work-in-progress, and some of the sections have been held back as they get a minor tweak in appearance.
 Keep checking back in the next few weeks for more content in the **Notes** section.
 
-## Deployment Special Thanks
-
-An extra special thanks to Ben Chasnov for snapping the frontpage photo
-
 ## About the content here
 
 The images and written works of this website are authored by Joshua Vasquez, unless otherwise noted and linked/cited as such.
