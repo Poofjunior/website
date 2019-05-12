@@ -53,5 +53,7 @@ Feel free to drop me a note if you're puzzling your way through building your ow
 ## Source Files
 * [Workshop Slides](https://docs.google.com/presentation/d/1Lo8_jkPTCBi0VlAMsFUTGJhLPq5ieeZaOlRS4TDlgYU/edit?usp=sharing)
 * [Bill of Materials](https://docs.google.com/spreadsheets/d/1YaR1sj0dAHBwe44lLPc1Yi4Vl7iLiWkbUq-3gKYUnEw/edit?usp=sharing)
-* [Cut Files](/projects/workshop_tentacle_2018_edition/downloads/tentacle_mechanism_2018_cut_files.zip)
+* [Laser Cutting Cut Files](/projects/workshop_tentacle_2018_edition/downloads/tentacle_mechanism_2018_cut_files.zip)
 * [Full Kit Building Instructions zipped](/projects/workshop_tentacle_2018_edition/downloads/tentacle_mechanism_2018_instructions.zip)
+* [Tentacle Mechanism CAD Files](/projects/workshop_tentacle_2018_edition/downloads/tentacle_mechanism.zip)
+* [Cable Controller CAD Files](/projects/workshop_tentacle_2018_edition/downloads/cable_controller_may_2019.zip)
