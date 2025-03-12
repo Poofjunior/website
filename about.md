@@ -71,11 +71,19 @@ May they serve you well in your tinkering adventures!
 
 ## Instruments
 * [Sonication Station](https://github.com/machineagency/sonication_station) Jubilee retrofitted with a camera, a sonicator, and a python layer to run bulk sonication experiments overnight.
+* [harp.device.lickety-split](https://github.com/AllenNeuralDynamics/harp.device.lickety-split) a high-speed, low latency rodent lick-detection system compatible with electrophysiology recording.
+* [harp.device.treadmill-driver](https://github.com/AllenNeuralDynamics/harp.device.treadmill-driver) electronic variable torque mouse treadmill for neuroscience experiments
+* [harp.device.white-rabbit](https://github.com/AllenNeuralDynamics/harp.device.white-rabbit) a time-keeping device for synchronizing multiple distinct devices compliant with the [Harp Protocol](https://harp-tech.org/protocol/BinaryProtocol-8bit.html) spec.
+* [harp.device.valve-controller](https://github.com/AllenNeuralDynamics/harp.device.valve-controller) a 16-channel mosfet-based valve controller with hit-and-hold valve-control capability.
 
 ## Python Packages
 * [TigerASI](https://github.com/AllenNeuralDynamics/TigerASI/tree/main), a comprehensive python driver for ASI Imaging hardware components used in microscopy. [docs](https://tigerasi.readthedocs.io/en/latest/)
 * [aaopto-aotf](https://github.com/AllenNeuralDynamics/aaopto-aotf), a python driver for controlling AA Opto-Electronics MPDS AOTF devices
 * [inpromptu](https://github.com/Poofjunior/inpromptu), a python package that turns (almost) any python class into a [REPL](https://github.com/Poofjunior/inpromptu)
+
+
+## C++ Libraries
+* [harp.core.pico](https://github.com/harp-tech/core.pico) a library for communicating to PCs via [Harp Protocol](https://harp-tech.org/protocol/BinaryProtocol-8bit.html), a growing neuroscience standard for embedded systems.
 
 ## Scratchwork
 * [Pico Projects](https://github.com/Poofjunior/pico-projects). Mini firmware projects featuring the RP2040 on the Raspberry Pi Pico.
