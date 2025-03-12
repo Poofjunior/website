@@ -10,11 +10,10 @@ title: about
 # {{ page.title }}
 
 I graduated from [Harvey Mudd College](https://www.hmc.edu/) back in 2014 with a B.S in Engineering.
-Since then, I've served the forces of [Mayfield](https://www.heykuri.com/blog/important_difficult_announcement/) Robotics and later [Synthego](https://www.synthego.com/) wearing various mechatronics, electrical, and software hats.
-These days, I'm a researcher at [Machine Agency](https://machineagency.github.io/) by day and a [Hackaday](http://hackaday.com/author/doublejumpelectric/) writer on some nights.
+Since then, I've served the forces of [Mayfield](https://www.heykuri.com/blog/important_difficult_announcement/) Robotics, [Synthego](https://www.synthego.com/), and [Machine Agency](https://machineagency.github.io/) wearing various mechatronics, electrical, and software hats.
+These days, I'm an engineer by day at the [Allen Institute](https://alleninstitute.org/division/neural-dynamics/) by day and a [Hackaday](http://hackaday.com/author/doublejumpelectric/) writer on some nights.
 
-
-For me, engineering hasn't come without it's growing pains. Whether it's the fact that some concepts don't easily lend themselves to analogies from real life, or whether they haven't received the treatment of a well-tackled explanation, some things just don't make sense the first time you read/try/combust them.
+For me, engineering hasn't come without its growing pains. Whether it's the fact that some concepts don't easily lend themselves to analogies from real life, or whether they haven't received the treatment of a well-tackled explanation, some things just don't make sense the first time you read/try/combust them.
 
 I started these pages with two driving thoughts:
 
@@ -31,9 +30,9 @@ Lastly, feel free to drop me an email if these notes lead you into building some
 
 ## Contact Info
 
-**joshua [at] [thiswebsitename] [dot] com**
+**\<first two initials\>.jo.\<lastname\>@gmail.com**
 
-[resum&eacute;](../downloads/jvasquez_resume_nov_2017.pdf)
+[resum&eacute;](../downloads/svasquez_resume_sept_2023.pdf)
 
 
 # about this website
@@ -50,6 +49,35 @@ Keep checking back in the next few weeks for more content in the **Notes** secti
 
 ## About the content here
 
-The images and written works of this website are authored by Joshua Vasquez, unless otherwise noted and linked/cited as such.
+The images and written works of this website are authored by me unless otherwise noted and linked/cited as such.
 
-The file structure and [software used to generate this website](https://github.com/Poofjunior/website) leverage several open source tools and are themselves also entirely open source. Feel free to use them as a template for your website. Just change the content.
+The file structure and [software used to generate this website](https://github.com/Poofjunior/website) leverage several open source tools and are themselves also entirely open source. Feel free to use them as a template for your website with your own content.
+
+
+# Other Projects
+When it comes to side projects and other technical musings, I have too many to document thoroughly.
+Some are from work; others are still hairbrained and half-baked!
+Nevertheless, I think engineers benefit tremendously when we get to learn and build on each other's shared work.
+
+For reference, here's a quick summary of other things I've worked on (that I'm allowed to talk about!).
+May they serve you well in your tinkering adventures!
+
+
+## Machines
+* [Jubilee](https://github.com/machineagency/jubilee), an automatic toolchanging cnc platform for 3D printing, to motion experiments, to science.
+* [Jubilee 10cc Syringe Tool](https://github.com/machineagency/jubilee_syringe_tool/tree/main)
+* [Jubilee Camera Tool](https://github.com/Poofjunior/jubilee_camera_tool/tree/main)
+* [Jubilee XYZ Probe](https://github.com/Poofjunior/jubilee_xyz_probe_tool)
+
+## Instruments
+* [Sonication Station](https://github.com/machineagency/sonication_station) Jubilee retrofitted with a camera, a sonicator, and a python layer to run bulk sonication experiments overnight.
+
+## Python Packages
+* [TigerASI](https://github.com/AllenNeuralDynamics/TigerASI/tree/main), a comprehensive python driver for ASI Imaging hardware components used in microscopy. [docs](https://tigerasi.readthedocs.io/en/latest/)
+* [aaopto-aotf](https://github.com/AllenNeuralDynamics/aaopto-aotf), a python driver for controlling AA Opto-Electronics MPDS AOTF devices
+* [inpromptu](https://github.com/Poofjunior/inpromptu), a python package that turns (almost) any python class into a [REPL](https://github.com/Poofjunior/inpromptu)
+
+## Scratchwork
+* [Pico Projects](https://github.com/Poofjunior/pico-projects). Mini firmware projects featuring the RP2040 on the Raspberry Pi Pico.
+* [Jupyter Notebooks](https://github.com/Poofjunior/jupyter_notebooks)
+* [Input Shaping Notes](https://github.com/Poofjunior/input_shaping_notes/tree/main)
